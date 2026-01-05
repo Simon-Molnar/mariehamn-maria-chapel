@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Cinzel", "serif"],
-        body: ["Cormorant Garamond", "serif"],
+        display: ["Playfair Display", "serif"],
+        body: ["Source Sans 3", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -32,10 +32,9 @@ export default {
           DEFAULT: "hsl(var(--cream))",
           soft: "hsl(var(--cream-soft))",
         },
-        burgundy: "hsl(var(--burgundy))",
-        navy: {
-          DEFAULT: "hsl(var(--navy))",
-          deep: "hsl(var(--navy-deep))",
+        slate: {
+          DEFAULT: "hsl(var(--slate))",
+          light: "hsl(var(--slate-light))",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
