@@ -13,6 +13,7 @@ const QuickInfoCards = () => {
       icon: Users,
       title: "Aktiviteter",
       lines: ["Gemenskap & möten", "Se vår kalender"],
+      link: "/verksamhet",
     },
     {
       icon: Cross,
