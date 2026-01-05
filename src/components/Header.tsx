@@ -10,8 +10,8 @@ const Header = () => {
     { name: "Gudstjänster", href: "/gudstjanst-typer" },
     { name: "Verksamhet", href: "/verksamhet" },
     { name: "Andligt", href: "/sakrament" },
-    { name: "Om oss", href: "#om-oss" },
-    { name: "Kontakt", href: "#kontakt" },
+    { name: "Om oss", href: "/om-oss" },
+    { name: "Kontakt", href: "/kontakt" },
   ];
 
   return (
