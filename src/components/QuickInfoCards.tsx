@@ -5,7 +5,7 @@ const QuickInfoCards = () => {
     {
       icon: Clock,
       title: "Mässtider",
-      lines: ["Söndag 10:00", "Onsdag 18:00"],
+      lines: ["Varannan lördag 10:00"],
     },
     {
       icon: Calendar,

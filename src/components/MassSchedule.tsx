@@ -2,10 +2,7 @@ import { Clock, MapPin, Calendar } from "lucide-react";
 
 const MassSchedule = () => {
   const schedule = [
-    { day: "Söndag", time: "10:00", type: "Högmässa" },
-    { day: "Lördag", time: "18:00", type: "Vigiliemässa" },
-    { day: "Onsdag", time: "18:30", type: "Vardagsmässa" },
-    { day: "Fredag", time: "17:00", type: "Vardagsmässa" },
+    { day: "Varannan lördag", time: "10:00", type: "Högmässa" },
   ];
 
   const specialEvents = [
