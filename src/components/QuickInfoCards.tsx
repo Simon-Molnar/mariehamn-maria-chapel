@@ -19,6 +19,7 @@ const QuickInfoCards = () => {
       icon: Cross,
       title: "Sakrament",
       lines: ["Dop, bikt, nattvard", "Kontakta oss för info"],
+      link: "/sakrament",
     },
     {
       icon: Heart,
