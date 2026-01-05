@@ -7,9 +7,7 @@ const WelcomeSection = () => {
             Välkommen till S:t Görans kyrka
           </h2>
           <p className="font-body text-lg text-muted-foreground leading-relaxed mb-6">
-            Vi är en katolsk församling i Mariehamn som välkomnar alla att delta i våra 
-            gudstjänster och vår gemenskap. Oavsett om du är katolik sedan länge, nyfiken 
-            på tron eller söker en andlig hemvist – du är välkommen hos oss.
+            Vi är en katolsk församling i Mariehamn som välkomnar alla till våra gudstjänster och vår gemenskap. Du är välkommen hos oss.
           </p>
           <p className="font-body text-lg text-muted-foreground leading-relaxed">
             Vår församling tillhör Helsingfors katolska stift och är en del av den världsvida 
