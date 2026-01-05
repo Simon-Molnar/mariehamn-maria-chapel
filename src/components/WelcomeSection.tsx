@@ -7,11 +7,11 @@ const WelcomeSection = () => {
             Välkommen till S:t Görans kyrka
           </h2>
           <p className="font-body text-lg text-muted-foreground leading-relaxed mb-6">
-            Vi är en katolsk församling i Mariehamn som välkomnar alla till våra gudstjänster och vår gemenskap. Du är välkommen hos oss.
+            S:t Görans katolska församling i Mariehamn välkomnar alla till gudstjänst och gemenskap. Du är varmt välkommen.
           </p>
           <p className="font-body text-lg text-muted-foreground leading-relaxed">
-            Vår församling tillhör Helsingfors katolska stift och är en del av den världsvida 
-            katolska Kyrkan. Här möts vi för mässa, bön, gemenskap och lärande.
+            Församlingen tillhör Helsingfors katolska stift och är en del av den världsvida 
+            katolska Kyrkan. Här möts människor för mässa, bön, gemenskap och lärande.
           </p>
         </div>
       </div>
