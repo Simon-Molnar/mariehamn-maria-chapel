@@ -9,7 +9,7 @@ const Header = () => {
     { name: "Hem", href: "/" },
     { name: "Gudstjänster", href: "/gudstjanst-typer" },
     { name: "Verksamhet", href: "/verksamhet" },
-    { name: "Andligt", href: "#andligt" },
+    { name: "Andligt", href: "/andligt" },
     { name: "Om oss", href: "#om-oss" },
     { name: "Kontakt", href: "#kontakt" },
   ];
