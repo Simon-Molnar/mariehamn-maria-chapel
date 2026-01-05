@@ -9,7 +9,7 @@
 @layer base {
   :root {
     /* Light warm backgrounds - more cream, less gray */
-    --background: 0 0% 100%;
+    --background: 38 35% 97%;
     --foreground: 220 25% 20%;
 
     --card: 40 40% 99%;

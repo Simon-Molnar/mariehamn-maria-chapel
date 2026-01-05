@@ -27,7 +27,7 @@ const QuickInfoCards = () => {
   ];
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-16 bg-muted/50">
       <div className="container mx-auto px-6">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {cards.map((card, index) => {
