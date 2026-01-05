@@ -5,12 +5,12 @@ import Footer from "@/components/Footer";
 
 const Gudstjanster = () => {
   const upcomingServices = [
-    { date: "12 januari 2026", day: "Söndag", time: "10:00", type: "Högmässa", celebrant: "Fader Johannes" },
-    { date: "19 januari 2026", day: "Söndag", time: "10:00", type: "Högmässa", celebrant: "Fader Johannes" },
-    { date: "26 januari 2026", day: "Söndag", time: "10:00", type: "Högmässa", celebrant: "Fader Johannes" },
-    { date: "2 februari 2026", day: "Söndag", time: "10:00", type: "Kyndelsmässan", celebrant: "Fader Johannes" },
-    { date: "9 februari 2026", day: "Söndag", time: "10:00", type: "Högmässa", celebrant: "Fader Johannes" },
-    { date: "16 februari 2026", day: "Söndag", time: "10:00", type: "Högmässa", celebrant: "Fader Johannes" },
+    { date: "12 januari 2026", day: "Söndag", time: "10:00", type: "Högmässa", celebrant: "Stanisław Zawiłowicz (SCJ)" },
+    { date: "19 januari 2026", day: "Söndag", time: "10:00", type: "Högmässa", celebrant: "Stanisław Zawiłowicz (SCJ)" },
+    { date: "26 januari 2026", day: "Söndag", time: "10:00", type: "Högmässa", celebrant: "Stanisław Zawiłowicz (SCJ)" },
+    { date: "2 februari 2026", day: "Söndag", time: "10:00", type: "Kyndelsmässan", celebrant: "Stanisław Zawiłowicz (SCJ)" },
+    { date: "9 februari 2026", day: "Söndag", time: "10:00", type: "Högmässa", celebrant: "Stanisław Zawiłowicz (SCJ)" },
+    { date: "16 februari 2026", day: "Söndag", time: "10:00", type: "Högmässa", celebrant: "Stanisław Zawiłowicz (SCJ)" },
   ];
 
   return (
