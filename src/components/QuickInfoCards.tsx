@@ -1,26 +1,26 @@
-import { Clock, Calendar, BookOpen, MapPin } from "lucide-react";
+import { Church, Users, Cross, Heart } from "lucide-react";
 
 const QuickInfoCards = () => {
   const cards = [
     {
-      icon: Clock,
-      title: "Mässtider",
-      lines: ["Varannan lördag 10:00"],
+      icon: Church,
+      title: "Gudstjänster",
+      lines: ["Varannan lördag 10:00", "Alla välkomna"],
     },
     {
-      icon: Calendar,
-      title: "Evenemang",
-      lines: ["Se vår kalender", "för kommande aktiviteter"],
+      icon: Users,
+      title: "Aktiviteter",
+      lines: ["Gemenskap & möten", "Se vår kalender"],
     },
     {
-      icon: BookOpen,
-      title: "Bibelstudier",
-      lines: ["Fredagar 19:00", "Alla välkomna"],
+      icon: Cross,
+      title: "Sakrament",
+      lines: ["Dop, bikt, nattvard", "Kontakta oss för info"],
     },
     {
-      icon: MapPin,
-      title: "Hitta hit",
-      lines: ["Norra Esplanadgatan 1", "Mariehamn"],
+      icon: Heart,
+      title: "Barn & Ungdom",
+      lines: ["Söndagsskola", "Ungdomsgrupp"],
     },
   ];
 
