@@ -1,23 +1,66 @@
-import { Cross } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="py-8 bg-card border-t border-border">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col items-center gap-4 text-center">
-          <div className="flex items-center gap-2">
-            <Cross className="w-5 h-5 text-primary" />
-            <span className="font-display text-lg text-foreground">
-              Mariehamns Katolska Församling
-            </span>
+    <footer className="bg-card border-t border-border">
+      <div className="container mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          {/* Kontakta Oss */}
+          <div>
+            <h3 className="font-display text-xl font-semibold text-foreground mb-6">
+              Kontakta Oss
+            </h3>
+            <div className="space-y-4 font-body text-muted-foreground">
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">S:t Görans Katolska Kyrka</p>
+                  <p>Norra Esplanadgatan 1</p>
+                  <p>22100 Mariehamn, Åland</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
+                <a href="tel:+35818123456" className="hover:text-primary transition-colors">
+                  +358 18 12345
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-primary flex-shrink-0" />
+                <a href="mailto:info@katolskakyrkan.ax" className="hover:text-primary transition-colors">
+                  info@katolskakyrkan.ax
+                </a>
+              </div>
+            </div>
           </div>
-          <p className="font-body text-sm text-muted-foreground">
-            Norra Esplanadgatan 1, Mariehamn • Tel: +358 18 123 456
-          </p>
-          <p className="font-body text-xs text-muted-foreground">
-            © {new Date().getFullYear()} S:t Görans Katolska Kyrka. En del av Helsingfors katolska stift.
-          </p>
+
+          {/* Om Församlingen */}
+          <div>
+            <h3 className="font-display text-xl font-semibold text-foreground mb-6">
+              Om Församlingen
+            </h3>
+            <p className="font-body text-muted-foreground mb-6 leading-relaxed">
+              Mariehamns katolska församling är en del av Helsingfors katolska stift. 
+              Vi välkomnar alla som söker Gud och gemenskap i den katolska traditionen.
+            </p>
+            <a 
+              href="https://facebook.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-body"
+            >
+              <Facebook className="w-5 h-5" />
+              Följ oss på Facebook
+            </a>
+          </div>
         </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="border-t border-border py-6">
+        <p className="text-center font-body text-sm text-muted-foreground">
+          © {new Date().getFullYear()} Mariehamns Katolska Församling. Alla rättigheter förbehållna.
+        </p>
       </div>
     </footer>
   );
