@@ -15,7 +15,7 @@ const QuickInfoCards = () => {
     {
       icon: BookOpen,
       title: "Bibelstudier",
-      lines: ["Onsdagar 19:00", "Alla välkomna"],
+      lines: ["Fredagar 19:00", "Alla välkomna"],
     },
     {
       icon: MapPin,
