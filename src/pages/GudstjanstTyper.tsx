@@ -15,8 +15,12 @@ const GudstjanstTyper = () => {
       description: "Vardagsmässan firas på vardagar i enklare form men med samma heliga eukaristi och nåd som på söndagen. Den ger möjlighet till regelbundet deltagande i kyrkans sakramentala liv."
     },
     {
-      title: "Tidebön",
-      description: "Kyrkans gemensamma dagliga bön som följer dagens rytm och hjälper oss att stanna upp, tacka Gud och be för andra. Den är en bön vi ber tillsammans med hela kyrkan, inte bara för oss själva."
+      title: "Laudes (Morgonbönen)",
+      description: "Kyrkans morgonbön som ber vid dagens början för att tacka Gud för den nya dagen och be om hans välsignelse och ledning."
+    },
+    {
+      title: "Vesper (Aftonbönen)",
+      description: "Kyrkans aftonbön som avslutar arbetsdagen med tacksägelse och reflektion, och förenar församlingen med hela kyrkans bön världen över."
     },
     {
       title: "Rosenkransandakt",
