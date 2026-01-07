@@ -23,7 +23,7 @@ const GudstjanstTyper = () => {
       description: "Kyrkans aftonbön som avslutar arbetsdagen med tacksägelse och reflektion, och förenar församlingen med hela kyrkans bön världen över."
     },
     {
-      title: "Rosenkransandakt",
+      title: "Rosenkransbön",
       description: "Rosenkransen är en meditativ bön där de troende, tillsammans med Jungfru Maria, begrundar Kristi liv, lidande och härlighet."
     },
     {
