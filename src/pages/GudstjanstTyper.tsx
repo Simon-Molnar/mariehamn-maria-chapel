@@ -20,7 +20,7 @@ const GudstjanstTyper = () => {
     },
     {
       title: "Tidebön",
-      description: "Tidebönen är kyrkans gemensamma dagliga bön, där församlingen förenar sig med hela kyrkan i lovsång, tacksägelse och förbön."
+      description: "Kyrkans gemensamma dagliga bön som följer dagens rytm och hjälper oss att stanna upp, tacka Gud och be för andra. Den är en bön vi ber tillsammans med hela kyrkan, inte bara för oss själva."
     },
     {
       title: "Rosenkransandakt",
