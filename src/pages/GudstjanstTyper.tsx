@@ -75,7 +75,7 @@ const GudstjanstTyper = () => {
           </div>
 
           {/* Service types grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
             {serviceTypes.map((service, index) => (
               <div key={index} className="bg-card rounded-xl p-6 shadow-card hover:shadow-hover transition-shadow">
                 <h3 className="font-display text-xl text-foreground mb-2">
