@@ -5,34 +5,28 @@ import Footer from "@/components/Footer";
 const GudstjanstTyper = () => {
   const serviceTypes = [{
     icon: Church,
-    title: "Högmässa",
-    description: "Söndagens huvudgudstjänst med eukaristifirande. Mässan följer den katolska liturgin med läsningar, predikan, trosbekännelse och nattvard.",
-    frequency: "Varje söndag kl. 10:00"
-  }, {
-    icon: Star,
-    title: "Högtidsmässor",
-    description: "Särskilda mässor som firas under kyrkliga högtider som jul, påsk, pingst och andra helgdagar i kyrkoåret.",
-    frequency: "Enligt kyrkoårets kalender"
-  }, {
-    icon: Cross,
-    title: "Kyndelsmässan",
-    description: "Firas den 2 februari till minne av Jesu frambärande i templet. Ljusvälsignelse och ljusprocession ingår i firandet.",
-    frequency: "2 februari"
-  }, {
-    icon: Heart,
-    title: "Bikt och försoning",
-    description: "Möjlighet till enskild bikt och själavårdssamtal med prästen. Bikten är ett sakrament för försoning med Gud.",
-    frequency: "Före mässan efter överenskommelse"
+    title: "Heliga mässan",
+    description: "Söndagsmässa, vardagsmässa"
   }, {
     icon: BookOpen,
-    title: "Sakramentsandakt",
-    description: "Stilla bön och tillbedjan inför det utställda sakramentet. En tid för kontemplation och fördjupad andlighet.",
-    frequency: "Fredagar kl. 19:00"
+    title: "Ordets gudstjänst",
+    description: "Bibelläsningar, predikan, förbön utan eukaristi"
+  }, {
+    icon: Heart,
+    title: "Tidebön",
+    description: "Morgonbön (laudes), aftonbön (vesper)"
+  }, {
+    icon: Cross,
+    title: "Andakter",
+    description: "Rosenkrans, korsvägsandakt, särskilda högtidsandakter"
+  }, {
+    icon: Star,
+    title: "Tillbedjan",
+    description: "Eukaristisk tillbedjan (vid tillfälle)"
   }, {
     icon: Users,
-    title: "Gemenskapsmässor",
-    description: "Mässor med särskilt fokus på gemenskap, ofta följda av kyrkkaffe och samvaro i församlingshemmet.",
-    frequency: "Vid särskilda tillfällen"
+    title: "Högtider",
+    description: "Firande av kyrkoårets högtider"
   }];
   return <div className="min-h-screen bg-background">
       <Header />
@@ -65,11 +59,8 @@ Här kan du läsa mer om de olika gudstjänsterna.</p>
                 <h3 className="font-display text-xl text-foreground mb-2">
                   {service.title}
                 </h3>
-                <p className="font-body text-muted-foreground mb-4 leading-relaxed">
+                <p className="font-body text-muted-foreground leading-relaxed">
                   {service.description}
-                </p>
-                <p className="font-body text-sm text-primary font-medium">
-                  {service.frequency}
                 </p>
               </div>)}
           </div>
