@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import gudstjanstHero from "@/assets/gudstjanst-hero.avif";
+import sakramentHero from "@/assets/sakrament-hero.avif";
 
 const Sakrament = () => {
   const sacraments = [
@@ -50,9 +50,9 @@ const Sakrament = () => {
           <div
             className="relative text-center mb-12 -mx-6 px-6 py-16 md:py-24 rounded-md overflow-hidden"
             style={{
-              backgroundImage: `url(${gudstjanstHero})`,
+              backgroundImage: `url(${sakramentHero})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center 70%'
+              backgroundPosition: 'center 40%'
             }}
           >
             {/* Dark overlay */}
@@ -60,7 +60,7 @@ const Sakrament = () => {
             
             <div className="relative z-10">
               <h1 className="font-display text-4xl md:text-5xl text-white mb-4">
-                Sakramenten
+                Sakrament
               </h1>
               <p className="font-body text-lg text-white/90 max-w-2xl mx-auto">
                 Sakramenten är heliga tecken instiftade av Kristus för att förmedla nåd. 
