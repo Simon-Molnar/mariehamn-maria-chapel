@@ -40,7 +40,7 @@ const OmOss = () => {
             style={{
               backgroundImage: `url(${omOssHero})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center 70%'
+              backgroundPosition: 'center 65%'
             }}
           >
             {/* Dark overlay */}
