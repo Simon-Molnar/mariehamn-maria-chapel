@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, MapPin, Phone, Mail, Clock, Facebook } from "lucide-react";
+import { ArrowLeft, MapPin, Phone, Envelope, Clock, FacebookLogo, Cross } from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -14,7 +14,7 @@ const Kontakt = () => {
             to="/" 
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8 font-body"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft size={16} weight="light" />
             Tillbaka till startsidan
           </Link>
 
@@ -34,7 +34,7 @@ const Kontakt = () => {
             {/* Address */}
             <div className="bg-card rounded-xl p-8 shadow-card">
               <div className="w-14 h-14 mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-                <MapPin className="w-7 h-7 text-primary" />
+                <MapPin size={28} weight="light" className="text-primary" />
               </div>
               <h2 className="font-display text-xl text-foreground mb-3">Adress</h2>
               <p className="font-body text-muted-foreground leading-relaxed">
@@ -48,7 +48,7 @@ const Kontakt = () => {
             {/* Phone */}
             <div className="bg-card rounded-xl p-8 shadow-card">
               <div className="w-14 h-14 mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-                <Phone className="w-7 h-7 text-primary" />
+                <Phone size={28} weight="light" className="text-primary" />
               </div>
               <h2 className="font-display text-xl text-foreground mb-3">Telefon</h2>
               <p className="font-body text-muted-foreground mb-4">
@@ -65,7 +65,7 @@ const Kontakt = () => {
             {/* Email */}
             <div className="bg-card rounded-xl p-8 shadow-card">
               <div className="w-14 h-14 mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-                <Mail className="w-7 h-7 text-primary" />
+                <Envelope size={28} weight="light" className="text-primary" />
               </div>
               <h2 className="font-display text-xl text-foreground mb-3">E-post</h2>
               <p className="font-body text-muted-foreground mb-4">
@@ -82,7 +82,7 @@ const Kontakt = () => {
             {/* Opening Hours */}
             <div className="bg-card rounded-xl p-8 shadow-card">
               <div className="w-14 h-14 mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-                <Clock className="w-7 h-7 text-primary" />
+                <Clock size={28} weight="light" className="text-primary" />
               </div>
               <h2 className="font-display text-xl text-foreground mb-3">Öppettider</h2>
               <div className="font-body text-muted-foreground space-y-2">
@@ -98,7 +98,7 @@ const Kontakt = () => {
             {/* Social Media */}
             <div className="bg-card rounded-xl p-8 shadow-card">
               <div className="w-14 h-14 mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-                <Facebook className="w-7 h-7 text-primary" />
+                <FacebookLogo size={28} weight="light" className="text-primary" />
               </div>
               <h2 className="font-display text-xl text-foreground mb-3">Sociala medier</h2>
               <p className="font-body text-muted-foreground mb-4">
@@ -117,7 +117,7 @@ const Kontakt = () => {
             {/* Priest */}
             <div className="bg-card rounded-xl p-8 shadow-card">
               <div className="w-14 h-14 mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-                <span className="text-2xl">✝</span>
+                <Cross size={28} weight="light" className="text-primary" />
               </div>
               <h2 className="font-display text-xl text-foreground mb-3">Präst</h2>
               <p className="font-body text-muted-foreground mb-4">

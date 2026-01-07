@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Droplets, Cross, Heart, Users, HandHeart, Crown, Sparkles } from "lucide-react";
+import { ArrowLeft, Drop, Cross, Heart, Users, HandHeart, Crown, Sparkle } from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const Sakrament = () => {
   const sacraments = [
     {
-      icon: Droplets,
+      icon: Drop,
       title: "Dopet",
       description: "Dopet är porten till det kristna livet och till Guds rikes gemenskap. Genom dopet blir vi Guds barn och medlemmar i Kristi kropp, kyrkan. Både barn och vuxna kan döpas.",
       info: "Kontakta prästen för dopsamtal",
@@ -18,7 +18,7 @@ const Sakrament = () => {
       info: "Konfirmationsundervisning erbjuds årligen",
     },
     {
-      icon: Sparkles,
+      icon: Sparkle,
       title: "Eukaristin (Nattvarden)",
       description: "Eukaristin är centrum i kyrkans liv. I nattvarden tar vi emot Kristi kropp och blod under brödets och vinets gestalter. Detta sakrament firas vid varje mässa.",
       info: "Firas vid varje gudstjänst",
@@ -59,7 +59,7 @@ const Sakrament = () => {
             to="/" 
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8 font-body"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft size={16} weight="light" />
             Tillbaka till startsidan
           </Link>
 
@@ -83,7 +83,7 @@ const Sakrament = () => {
               >
                 <div className="flex items-start gap-6">
                   <div className="w-14 h-14 shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
-                    <sacrament.icon className="w-7 h-7 text-primary" />
+                    <sacrament.icon size={28} weight="light" className="text-primary" />
                   </div>
                   <div>
                     <h2 className="font-display text-xl text-foreground mb-3">

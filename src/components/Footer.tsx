@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Facebook } from "lucide-react";
+import { MapPin, Phone, Envelope, FacebookLogo } from "@phosphor-icons/react";
 
 const Footer = () => {
   return (
@@ -12,7 +12,7 @@ const Footer = () => {
             </h3>
             <div className="space-y-4 font-body text-muted-foreground">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <MapPin size={20} weight="light" className="text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="font-medium text-foreground">S:t Görans Katolska Kyrka</p>
                   <p>Norra Esplanadgatan 1</p>
@@ -20,13 +20,13 @@ const Footer = () => {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
+                <Phone size={20} weight="light" className="text-primary flex-shrink-0" />
                 <a href="tel:+35818123456" className="hover:text-primary transition-colors">
                   +358 18 12345
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-primary flex-shrink-0" />
+                <Envelope size={20} weight="light" className="text-primary flex-shrink-0" />
                 <a href="mailto:info@katolskakyrkan.ax" className="hover:text-primary transition-colors">
                   info@katolskakyrkan.ax
                 </a>
@@ -49,7 +49,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-body"
             >
-              <Facebook className="w-5 h-5" />
+              <FacebookLogo size={20} weight="light" />
               Följ oss på Facebook
             </a>
           </div>

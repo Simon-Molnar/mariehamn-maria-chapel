@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Users, Heart, BookOpen, Coffee, Music, Handshake } from "lucide-react";
+import { ArrowLeft, Users, Heart, BookOpen, Coffee, MusicNotes, Handshake } from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -30,7 +30,7 @@ const Verksamhet = () => {
       time: "Söndagar efter mässan",
     },
     {
-      icon: Music,
+      icon: MusicNotes,
       title: "Kyrkokör",
       description: "Församlingens kör övar regelbundet och medverkar vid gudstjänster och högtider. Alla som vill sjunga är välkomna att delta, oavsett tidigare erfarenhet.",
       time: "Torsdagar kl. 18:30",
@@ -53,7 +53,7 @@ const Verksamhet = () => {
             to="/" 
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8 font-body"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft size={16} weight="light" />
             Tillbaka till startsidan
           </Link>
 
@@ -76,7 +76,7 @@ const Verksamhet = () => {
                 className="bg-card rounded-xl p-8 shadow-card hover:shadow-hover transition-all duration-300"
               >
                 <div className="w-14 h-14 mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-                  <activity.icon className="w-7 h-7 text-primary" />
+                  <activity.icon size={28} weight="light" className="text-primary" />
                 </div>
                 <h2 className="font-display text-xl text-foreground mb-3">
                   {activity.title}

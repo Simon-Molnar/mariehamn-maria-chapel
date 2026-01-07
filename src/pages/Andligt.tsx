@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, BookOpen, Flame, Heart, Moon, Sun, Hand } from "lucide-react";
+import { ArrowLeft, BookOpen, Flame, Heart, Moon, Sun, HandsPraying } from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const Andligt = () => {
   const spiritualLife = [
     {
-      icon: Hand,
+      icon: HandsPraying,
       title: "Bön",
       description: "Bönen är hjärtat i det kristna livet. Genom bön talar vi med Gud, lyssnar till hans röst och fördjupar vår relation med honom. Kyrkan erbjuder olika böneformer och traditioner.",
       practices: ["Personlig bön", "Tidegärden", "Rosenkransen", "Adorationen"],
@@ -53,7 +53,7 @@ const Andligt = () => {
             to="/" 
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8 font-body"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft size={16} weight="light" />
             Tillbaka till startsidan
           </Link>
 
@@ -76,7 +76,7 @@ const Andligt = () => {
                 className="bg-card rounded-xl p-8 shadow-card hover:shadow-hover transition-all duration-300"
               >
                 <div className="w-14 h-14 mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-                  <item.icon className="w-7 h-7 text-primary" />
+                  <item.icon size={28} weight="light" className="text-primary" />
                 </div>
                 <h2 className="font-display text-xl text-foreground mb-3">
                   {item.title}

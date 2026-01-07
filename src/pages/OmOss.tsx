@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Church, Globe, Heart, Users } from "lucide-react";
+import { ArrowLeft, Church, Globe, Heart, Users } from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -14,7 +14,7 @@ const OmOss = () => {
             to="/" 
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8 font-body"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft size={16} weight="light" />
             Tillbaka till startsidan
           </Link>
 
@@ -36,7 +36,7 @@ const OmOss = () => {
               <div className="bg-card rounded-xl p-8 shadow-card">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Church className="w-6 h-6 text-primary" />
+                    <Church size={24} weight="light" className="text-primary" />
                   </div>
                   <h2 className="font-display text-2xl text-foreground">Vår historia</h2>
                 </div>
@@ -55,7 +55,7 @@ const OmOss = () => {
               <div className="bg-card rounded-xl p-8 shadow-card">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Globe className="w-6 h-6 text-primary" />
+                    <Globe size={24} weight="light" className="text-primary" />
                   </div>
                   <h2 className="font-display text-2xl text-foreground">Del av världskyrkan</h2>
                 </div>
@@ -72,7 +72,7 @@ const OmOss = () => {
               <div className="bg-card rounded-xl p-8 shadow-card">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Heart className="w-6 h-6 text-primary" />
+                    <Heart size={24} weight="light" className="text-primary" />
                   </div>
                   <h2 className="font-display text-2xl text-foreground">Vårt uppdrag</h2>
                 </div>
@@ -104,7 +104,7 @@ const OmOss = () => {
               <div className="bg-card rounded-xl p-8 shadow-card">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Users className="w-6 h-6 text-primary" />
+                    <Users size={24} weight="light" className="text-primary" />
                   </div>
                   <h2 className="font-display text-2xl text-foreground">Gemenskap</h2>
                 </div>
