@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import gudstjanstHero from "@/assets/gudstjanst-hero.avif";
+import gudstjanstHero from "@/assets/gudstjanst-hero.jpg";
 
 const GudstjanstTyper = () => {
   const serviceTypes = [
