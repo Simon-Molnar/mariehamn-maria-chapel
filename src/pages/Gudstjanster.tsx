@@ -1,110 +1,68 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Church, Calendar, Clock, MapPin, BookOpen, Heart, Cross, Star, Users } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, MapPin, BookOpen, Filter } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+
+type ServiceCategory = "Söndagsmässa" | "Vardagsmässa" | "Andakt" | "Tidebön" | "Högtid";
+
+interface Service {
+  date: string;
+  sortDate: string;
+  day: string;
+  time: string;
+  type: string;
+  category: ServiceCategory;
+  celebrant?: string;
+  note?: string;
+}
+
+const categoryColors: Record<ServiceCategory, string> = {
+  "Söndagsmässa": "bg-primary text-primary-foreground",
+  "Vardagsmässa": "bg-secondary text-secondary-foreground",
+  "Andakt": "bg-accent text-accent-foreground",
+  "Tidebön": "bg-muted text-muted-foreground",
+  "Högtid": "bg-primary/80 text-primary-foreground",
+};
 
 const Gudstjanster = () => {
-  const sundayMasses = [
-    { date: "12 januari 2026", day: "Söndag", time: "10:00", type: "Söndagsmässa", celebrant: "Stanisław Zawiłowicz (SCJ)" },
-    { date: "19 januari 2026", day: "Söndag", time: "10:00", type: "Söndagsmässa", celebrant: "Stanisław Zawiłowicz (SCJ)" },
-    { date: "26 januari 2026", day: "Söndag", time: "10:00", type: "Söndagsmässa", celebrant: "Stanisław Zawiłowicz (SCJ)" },
-    { date: "2 februari 2026", day: "Söndag", time: "10:00", type: "Kyndelsmässan", celebrant: "Stanisław Zawiłowicz (SCJ)" },
-    { date: "9 februari 2026", day: "Söndag", time: "10:00", type: "Söndagsmässa", celebrant: "Stanisław Zawiłowicz (SCJ)" },
-    { date: "16 februari 2026", day: "Söndag", time: "10:00", type: "Söndagsmässa", celebrant: "Stanisław Zawiłowicz (SCJ)" },
-  ];
+  const [selectedCategory, setSelectedCategory] = useState<ServiceCategory | "Alla">("Alla");
 
-  const weekdayMasses = [
-    { date: "14 januari 2026", day: "Onsdag", time: "18:00", type: "Vardagsmässa", celebrant: "Stanisław Zawiłowicz (SCJ)" },
-    { date: "21 januari 2026", day: "Onsdag", time: "18:00", type: "Vardagsmässa", celebrant: "Stanisław Zawiłowicz (SCJ)" },
-    { date: "28 januari 2026", day: "Onsdag", time: "18:00", type: "Vardagsmässa", celebrant: "Stanisław Zawiłowicz (SCJ)" },
-  ];
+  const allServices: Service[] = ([
+    // Söndagsmässor
+    { date: "12 januari 2026", sortDate: "2026-01-12", day: "Söndag", time: "10:00", type: "Söndagsmässa", category: "Söndagsmässa" as ServiceCategory, celebrant: "Stanisław Zawiłowicz (SCJ)" },
+    { date: "19 januari 2026", sortDate: "2026-01-19", day: "Söndag", time: "10:00", type: "Söndagsmässa", category: "Söndagsmässa" as ServiceCategory, celebrant: "Stanisław Zawiłowicz (SCJ)" },
+    { date: "26 januari 2026", sortDate: "2026-01-26", day: "Söndag", time: "10:00", type: "Söndagsmässa", category: "Söndagsmässa" as ServiceCategory, celebrant: "Stanisław Zawiłowicz (SCJ)" },
+    { date: "9 februari 2026", sortDate: "2026-02-09", day: "Söndag", time: "10:00", type: "Söndagsmässa", category: "Söndagsmässa" as ServiceCategory, celebrant: "Stanisław Zawiłowicz (SCJ)" },
+    { date: "16 februari 2026", sortDate: "2026-02-16", day: "Söndag", time: "10:00", type: "Söndagsmässa", category: "Söndagsmässa" as ServiceCategory, celebrant: "Stanisław Zawiłowicz (SCJ)" },
+    
+    // Vardagsmässor
+    { date: "14 januari 2026", sortDate: "2026-01-14", day: "Onsdag", time: "18:00", type: "Vardagsmässa", category: "Vardagsmässa" as ServiceCategory, celebrant: "Stanisław Zawiłowicz (SCJ)" },
+    { date: "21 januari 2026", sortDate: "2026-01-21", day: "Onsdag", time: "18:00", type: "Vardagsmässa", category: "Vardagsmässa" as ServiceCategory, celebrant: "Stanisław Zawiłowicz (SCJ)" },
+    { date: "28 januari 2026", sortDate: "2026-01-28", day: "Onsdag", time: "18:00", type: "Vardagsmässa", category: "Vardagsmässa" as ServiceCategory, celebrant: "Stanisław Zawiłowicz (SCJ)" },
+    
+    // Andakter
+    { date: "15 januari 2026", sortDate: "2026-01-15", day: "Torsdag", time: "17:30", type: "Rosenkransandakt", category: "Andakt" as ServiceCategory, note: "Före vardagsmässan" },
+    { date: "22 januari 2026", sortDate: "2026-01-22", day: "Torsdag", time: "17:30", type: "Rosenkransandakt", category: "Andakt" as ServiceCategory, note: "Före vardagsmässan" },
+    { date: "22 februari 2026", sortDate: "2026-02-22", day: "Söndag", time: "15:00", type: "Korsvägsandakt", category: "Andakt" as ServiceCategory, note: "Fastetiden" },
+    { date: "1 mars 2026", sortDate: "2026-03-01", day: "Söndag", time: "15:00", type: "Korsvägsandakt", category: "Andakt" as ServiceCategory, note: "Fastetiden" },
+    
+    // Högtider
+    { date: "2 februari 2026", sortDate: "2026-02-02", day: "Söndag", time: "10:00", type: "Kyndelsmässan", category: "Högtid" as ServiceCategory, note: "Herrens frambärande i templet" },
+    { date: "17 februari 2026", sortDate: "2026-02-17", day: "Tisdag", time: "18:00", type: "Askonsdagen", category: "Högtid" as ServiceCategory, note: "Fastans inledning" },
+    { date: "5 april 2026", sortDate: "2026-04-05", day: "Söndag", time: "10:00", type: "Palmsöndagen", category: "Högtid" as ServiceCategory, note: "Stilla veckan inleds" },
+    { date: "9 april 2026", sortDate: "2026-04-09", day: "Torsdag", time: "18:00", type: "Skärtorsdagen", category: "Högtid" as ServiceCategory, note: "Fottvagning och nattvard" },
+    { date: "10 april 2026", sortDate: "2026-04-10", day: "Fredag", time: "15:00", type: "Långfredagen", category: "Högtid" as ServiceCategory, note: "Herrens lidande" },
+    { date: "11 april 2026", sortDate: "2026-04-11", day: "Lördag", time: "21:00", type: "Påskvaka", category: "Högtid" as ServiceCategory, note: "Påskens stora natt" },
+    { date: "12 april 2026", sortDate: "2026-04-12", day: "Söndag", time: "10:00", type: "Påskdagen", category: "Högtid" as ServiceCategory, note: "Kristi uppståndelse" },
+  ] as Service[]).sort((a, b) => a.sortDate.localeCompare(b.sortDate));
 
-  const devotions = [
-    { date: "15 januari 2026", day: "Torsdag", time: "17:30", type: "Rosenkransandakt", note: "Före vardagsmässan" },
-    { date: "22 januari 2026", day: "Torsdag", time: "17:30", type: "Rosenkransandakt", note: "Före vardagsmässan" },
-    { date: "22 februari 2026", day: "Söndag", time: "15:00", type: "Korsvägsandakt", note: "Fastetiden" },
-    { date: "1 mars 2026", day: "Söndag", time: "15:00", type: "Korsvägsandakt", note: "Fastetiden" },
-  ];
+  const categories: Array<ServiceCategory | "Alla"> = ["Alla", "Söndagsmässa", "Vardagsmässa", "Andakt", "Tidebön", "Högtid"];
 
-  const prayerHours = [
-    { day: "Måndag–Fredag", time: "07:30", type: "Laudes (Morgonbön)", note: "Tidebönen" },
-    { day: "Måndag–Fredag", time: "18:00", type: "Vesper (Aftonbön)", note: "Tidebönen" },
-  ];
-
-  const specialServices = [
-    { date: "2 februari 2026", day: "Söndag", time: "10:00", type: "Kyndelsmässan", note: "Herrens frambärande i templet" },
-    { date: "17 februari 2026", day: "Tisdag", time: "18:00", type: "Askonsdagen", note: "Fastans inledning" },
-    { date: "5 april 2026", day: "Söndag", time: "10:00", type: "Palmsöndagen", note: "Stilla veckan inleds" },
-    { date: "9 april 2026", day: "Torsdag", time: "18:00", type: "Skärtorsdagen", note: "Fottvagning och nattvard" },
-    { date: "10 april 2026", day: "Fredag", time: "15:00", type: "Långfredagen", note: "Herrens lidande" },
-    { date: "11 april 2026", day: "Lördag", time: "21:00", type: "Påskvaka", note: "Påskens stora natt" },
-    { date: "12 april 2026", day: "Söndag", time: "10:00", type: "Påskdagen", note: "Kristi uppståndelse" },
-  ];
-
-  const serviceCategories = [
-    {
-      id: "sondagsmassa",
-      label: "Söndagsmässa",
-      icon: Church,
-      description: "Söndagsmässan är församlingens huvudsakliga gudstjänst på Herrens dag.",
-    },
-    {
-      id: "vardagsmassa",
-      label: "Vardagsmässa",
-      icon: Church,
-      description: "Vardagsmässan firas på vardagar i enklare form.",
-    },
-    {
-      id: "andakter",
-      label: "Andakter",
-      icon: Cross,
-      description: "Rosenkransandakt och korsvägsandakt.",
-    },
-    {
-      id: "tidebon",
-      label: "Tidebön",
-      icon: Heart,
-      description: "Kyrkans gemensamma dagliga bön.",
-    },
-    {
-      id: "hogtider",
-      label: "Högtider",
-      icon: Star,
-      description: "Kyrkoårets stora högtider.",
-    },
-  ];
-
-  const renderServiceTable = (services: Array<{ date?: string; day: string; time: string; type: string; celebrant?: string; note?: string }>, showCelebrant = false) => (
-    <div className="bg-card rounded-xl shadow-card overflow-hidden">
-      <div className="overflow-x-auto">
-        <table className="w-full">
-          <thead className="bg-muted/50">
-            <tr>
-              {services[0]?.date && <th className="px-6 py-4 text-left font-display text-sm text-foreground">Datum</th>}
-              <th className="px-6 py-4 text-left font-display text-sm text-foreground">Dag</th>
-              <th className="px-6 py-4 text-left font-display text-sm text-foreground">Tid</th>
-              <th className="px-6 py-4 text-left font-display text-sm text-foreground">Typ</th>
-              {showCelebrant && <th className="px-6 py-4 text-left font-display text-sm text-foreground hidden md:table-cell">Celebrant</th>}
-              {services[0]?.note && !showCelebrant && <th className="px-6 py-4 text-left font-display text-sm text-foreground hidden md:table-cell">Anmärkning</th>}
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-border">
-            {services.map((service, index) => (
-              <tr key={index} className="hover:bg-muted/30 transition-colors">
-                {service.date && <td className="px-6 py-4 font-body text-foreground">{service.date}</td>}
-                <td className="px-6 py-4 font-body text-muted-foreground">{service.day}</td>
-                <td className="px-6 py-4 font-body text-foreground">{service.time}</td>
-                <td className="px-6 py-4 font-body text-primary">{service.type}</td>
-                {showCelebrant && <td className="px-6 py-4 font-body text-muted-foreground hidden md:table-cell">{service.celebrant}</td>}
-                {service.note && !showCelebrant && <td className="px-6 py-4 font-body text-muted-foreground hidden md:table-cell">{service.note}</td>}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
+  const filteredServices = selectedCategory === "Alla" 
+    ? allServices 
+    : allServices.filter(s => s.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-background">
@@ -126,10 +84,10 @@ const Gudstjanster = () => {
               <Calendar className="w-10 h-10 text-primary" />
             </div>
             <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">
-              Gudstjänstschema
+              Gudstjänstkalender
             </h1>
             <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
-              Här hittar du information om kommande gudstjänster, mässor, andakter och högtider i S:t Görans Kyrka.
+              Alla kommande gudstjänster, mässor, andakter och högtider i S:t Görans Kyrka.
             </p>
           </div>
 
@@ -157,72 +115,70 @@ const Gudstjanster = () => {
             </div>
           </div>
 
-          {/* Category tabs */}
+          {/* Filter */}
+          <div className="max-w-5xl mx-auto mb-6">
+            <div className="flex items-center gap-3 flex-wrap">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Filter className="w-4 h-4" />
+                <span className="font-body text-sm">Filtrera:</span>
+              </div>
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-4 py-2 rounded-full font-body text-sm transition-colors ${
+                    selectedCategory === category
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-muted hover:bg-muted/80 text-muted-foreground"
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Combined calendar */}
           <div className="max-w-5xl mx-auto">
-            <Tabs defaultValue="sondagsmassa" className="w-full">
-              <TabsList className="w-full flex flex-wrap h-auto gap-2 bg-muted/50 p-2 rounded-xl mb-8">
-                {serviceCategories.map((category) => (
-                  <TabsTrigger 
-                    key={category.id} 
-                    value={category.id}
-                    className="flex items-center gap-2 px-4 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                  >
-                    <category.icon className="w-4 h-4" />
-                    <span className="hidden sm:inline">{category.label}</span>
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-
-              <TabsContent value="sondagsmassa" className="space-y-6">
-                <div className="text-center mb-6">
-                  <h2 className="font-display text-2xl text-foreground mb-2">Söndagsmässa</h2>
-                  <p className="font-body text-muted-foreground">
-                    Söndagsmässan är församlingens huvudsakliga gudstjänst på Herrens dag. Här samlas de troende kring Guds ord och firar den heliga eukaristin till åminnelse av Kristi uppståndelse.
-                  </p>
+            <div className="bg-card rounded-xl shadow-card overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-muted/50">
+                    <tr>
+                      <th className="px-4 md:px-6 py-4 text-left font-display text-sm text-foreground">Datum</th>
+                      <th className="px-4 md:px-6 py-4 text-left font-display text-sm text-foreground hidden sm:table-cell">Dag</th>
+                      <th className="px-4 md:px-6 py-4 text-left font-display text-sm text-foreground">Tid</th>
+                      <th className="px-4 md:px-6 py-4 text-left font-display text-sm text-foreground">Gudstjänst</th>
+                      <th className="px-4 md:px-6 py-4 text-left font-display text-sm text-foreground hidden lg:table-cell">Kategori</th>
+                      <th className="px-4 md:px-6 py-4 text-left font-display text-sm text-foreground hidden md:table-cell">Info</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border">
+                    {filteredServices.map((service, index) => (
+                      <tr key={index} className="hover:bg-muted/30 transition-colors">
+                        <td className="px-4 md:px-6 py-4 font-body text-foreground whitespace-nowrap">{service.date}</td>
+                        <td className="px-4 md:px-6 py-4 font-body text-muted-foreground hidden sm:table-cell">{service.day}</td>
+                        <td className="px-4 md:px-6 py-4 font-body text-foreground">{service.time}</td>
+                        <td className="px-4 md:px-6 py-4 font-body text-primary font-medium">{service.type}</td>
+                        <td className="px-4 md:px-6 py-4 hidden lg:table-cell">
+                          <Badge className={categoryColors[service.category]}>
+                            {service.category}
+                          </Badge>
+                        </td>
+                        <td className="px-4 md:px-6 py-4 font-body text-muted-foreground hidden md:table-cell">
+                          {service.celebrant || service.note || "–"}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {filteredServices.length === 0 && (
+                <div className="p-8 text-center text-muted-foreground font-body">
+                  Inga gudstjänster i denna kategori just nu.
                 </div>
-                {renderServiceTable(sundayMasses, true)}
-              </TabsContent>
-
-              <TabsContent value="vardagsmassa" className="space-y-6">
-                <div className="text-center mb-6">
-                  <h2 className="font-display text-2xl text-foreground mb-2">Vardagsmässa</h2>
-                  <p className="font-body text-muted-foreground">
-                    Vardagsmässan firas på vardagar i enklare form men med samma heliga eukaristi och nåd som på söndagen. Den ger möjlighet till regelbundet deltagande i kyrkans sakramentala liv.
-                  </p>
-                </div>
-                {renderServiceTable(weekdayMasses, true)}
-              </TabsContent>
-
-              <TabsContent value="andakter" className="space-y-6">
-                <div className="text-center mb-6">
-                  <h2 className="font-display text-2xl text-foreground mb-2">Andakter</h2>
-                  <p className="font-body text-muted-foreground">
-                    Rosenkransen är en meditativ bön där de troende begrundar Kristi liv. Korsvägsandakten följer Herren Jesus på hans lidandes väg.
-                  </p>
-                </div>
-                {renderServiceTable(devotions)}
-              </TabsContent>
-
-              <TabsContent value="tidebon" className="space-y-6">
-                <div className="text-center mb-6">
-                  <h2 className="font-display text-2xl text-foreground mb-2">Tidebön</h2>
-                  <p className="font-body text-muted-foreground">
-                    Tidebönen är kyrkans gemensamma dagliga bön, där församlingen förenar sig med hela kyrkan i lovsång, tacksägelse och förbön.
-                  </p>
-                </div>
-                {renderServiceTable(prayerHours)}
-              </TabsContent>
-
-              <TabsContent value="hogtider" className="space-y-6">
-                <div className="text-center mb-6">
-                  <h2 className="font-display text-2xl text-foreground mb-2">Högtider</h2>
-                  <p className="font-body text-muted-foreground">
-                    Högtidsandakter firas i anslutning till kyrkoårets stora högtider och hjälper församlingen att leva med i kyrkans liturgiska rytm.
-                  </p>
-                </div>
-                {renderServiceTable(specialServices)}
-              </TabsContent>
-            </Tabs>
+              )}
+            </div>
           </div>
 
           {/* Additional info */}
