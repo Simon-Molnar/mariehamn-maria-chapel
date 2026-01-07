@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Church } from "@phosphor-icons/react";
+import { ArrowLeft } from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import gudstjanstHero from "@/assets/gudstjanst-hero.avif";
 
 const GudstjanstTyper = () => {
   const serviceTypes = [
@@ -51,17 +52,26 @@ const GudstjanstTyper = () => {
           </Link>
 
           {/* Hero section */}
-          <div className="text-center mb-12">
-            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-              <Church size={40} weight="light" className="text-primary" />
+          <div 
+            className="relative text-center mb-12 -mx-6 px-6 py-16 md:py-24 rounded-xl overflow-hidden"
+            style={{
+              backgroundImage: `url(${gudstjanstHero})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center 30%'
+            }}
+          >
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-black/50" />
+            
+            <div className="relative z-10">
+              <h1 className="font-display text-4xl md:text-5xl text-white mb-4">
+                Gudstjänster
+              </h1>
+              <p className="font-body text-lg text-white/90 max-w-2xl mx-auto">
+                I S:t Görans Kyrka firas olika typer av gudstjänster och andakter genom året.
+                Här kan du läsa mer om de olika gudstjänsterna.
+              </p>
             </div>
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">
-              Gudstjänster
-            </h1>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
-              I S:t Görans Kyrka firas olika typer av gudstjänster och andakter genom året.
-              Här kan du läsa mer om de olika gudstjänsterna.
-            </p>
           </div>
 
           {/* Service types grid */}
