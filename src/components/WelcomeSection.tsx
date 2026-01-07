@@ -8,10 +8,9 @@ const WelcomeSection = () => {
           <p className="font-body text-lg text-muted-foreground leading-relaxed mb-6">
             Mariehamns katolska församling är en del av den Heliga Katolska Kyrkan och tillhör Helsingfors katolska stift. Församlingen samlar troende från många olika bakgrunder och livssituationer, förenade i kyrkans tro, bön och sakramentala liv.
           </p>
-          <p className="font-body text-lg text-muted-foreground leading-relaxed mb-6">Församlingen är en plats för tillbedjan, stillhet och andlig fördjupning, men även för gemenskap, aktiviteter och möten mellan människor i vardagen.</p>
-          <p className="font-body text-lg text-muted-foreground leading-relaxed">
-            Här finns utrymme för både personlig andakt och gemensamt församlingsliv, för barn, unga och vuxna. Oavsett om du är praktiserande katolik, söker dig tillbaka till kyrkan eller vill lära känna den katolska tron, är du varmt välkommen att delta i våra gudstjänster och i församlingens gemenskap.
-          </p>
+          <p className="font-body text-lg text-muted-foreground leading-relaxed mb-6">S:t Görans kyrka är en plats för tillbedjan, stillhet och andlig fördjupning, men även för gemenskap, aktiviteter och möten mellan människor i vardagen.</p>
+          <p className="font-body text-lg text-muted-foreground leading-relaxed">Här finns utrymme för både personlig andakt och gemensamt församlingsliv både vuxna, ungdomar och barn. Oavsett bakgrund är du varmt välkommen att delta i våra gudstjänster och
+i församlingens gemenskap.</p>
         </div>
       </div>
     </section>;
