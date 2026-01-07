@@ -6,7 +6,7 @@ const QuickInfoCards = () => {
     {
       icon: Church,
       title: "Gudstjänster",
-      lines: ["Söndagar kl. 10:00", "Alla välkomna"],
+      lines: ["Söndagar kl. 10:00", "Öppet deltagande"],
       link: "/gudstjanster",
     },
     {
