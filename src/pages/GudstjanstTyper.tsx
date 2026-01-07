@@ -24,7 +24,7 @@ const GudstjanstTyper = () => {
     },
     {
       title: "Rosenkransbön",
-      description: "Rosenkransen är en meditativ bön där de troende, tillsammans med Jungfru Maria, begrundar Kristi liv, lidande och härlighet."
+      description: "Rosenkransen är en meditativ bön där församlingen, tillsammans med Jungfru Maria, begrundar Kristi liv, lidande och härlighet."
     },
     {
       title: "Högtidsandakter",
