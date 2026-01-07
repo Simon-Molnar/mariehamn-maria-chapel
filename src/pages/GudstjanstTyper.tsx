@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Church, Cross, Heart, Star, BookOpen, Users } from "@phosphor-icons/react";
+import { ArrowLeft, Church, Sun, BookOpen, Clock, FlowerLotus, Path, Sparkle, CalendarBlank } from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -11,7 +11,7 @@ const GudstjanstTyper = () => {
       description: "Söndagsmässan är församlingens huvudsakliga gudstjänst på Herrens dag. Här samlas de troende kring Guds ord och firar den heliga eukaristin till åminnelse av Kristi uppståndelse."
     },
     {
-      icon: Church,
+      icon: Sun,
       title: "Vardagsmässa",
       description: "Vardagsmässan firas på vardagar i enklare form men med samma heliga eukaristi och nåd som på söndagen. Den ger möjlighet till regelbundet deltagande i kyrkans sakramentala liv."
     },
@@ -21,27 +21,27 @@ const GudstjanstTyper = () => {
       description: "Ordets gudstjänst är en samling där Guds ord står i centrum genom bibelläsningar, predikan och gemensam förbön, utan firande av eukaristin."
     },
     {
-      icon: Heart,
+      icon: Clock,
       title: "Tidebön",
       description: "Tidebönen är kyrkans gemensamma dagliga bön, där församlingen förenar sig med hela kyrkan i lovsång, tacksägelse och förbön."
     },
     {
-      icon: Cross,
+      icon: FlowerLotus,
       title: "Rosenkransandakt",
       description: "Rosenkransen är en meditativ bön där de troende, tillsammans med Jungfru Maria, begrundar Kristi liv, lidande och härlighet."
     },
     {
-      icon: Cross,
+      icon: Path,
       title: "Korsvägsandakt",
       description: "Korsvägsandakten är en andakt där församlingen i bön följer Herren Jesus Kristus på hans lidandes väg, särskilt under fastetiden."
     },
     {
-      icon: Star,
+      icon: Sparkle,
       title: "Eukaristisk tillbedjan",
       description: "Eukaristisk tillbedjan är en stund av stillhet och bön inför den heliga eukaristin, i vördnadsfull tillbedjan av Kristus själv."
     },
     {
-      icon: Users,
+      icon: CalendarBlank,
       title: "Högtidsandakter",
       description: "Högtidsandakter firas i anslutning till kyrkoårets stora högtider och hjälper församlingen att leva med i kyrkans liturgiska rytm."
     }
