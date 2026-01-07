@@ -48,7 +48,7 @@ const Verksamhet = () => {
             style={{
               backgroundImage: `url(${verksamhetHero})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center 65%'
+              backgroundPosition: 'center 62%'
             }}
           >
             {/* Dark overlay */}
