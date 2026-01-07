@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import gudstjanstHero from "@/assets/gudstjanst-hero.avif";
+import omOssHero from "@/assets/om-oss-hero.avif";
 
 const OmOss = () => {
   const sections = [
@@ -38,7 +38,7 @@ const OmOss = () => {
           <div
             className="relative text-center mb-12 -mx-6 px-6 py-16 md:py-24 rounded-md overflow-hidden"
             style={{
-              backgroundImage: `url(${gudstjanstHero})`,
+              backgroundImage: `url(${omOssHero})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center 70%'
             }}
