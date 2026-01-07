@@ -5,28 +5,36 @@ import Footer from "@/components/Footer";
 const GudstjanstTyper = () => {
   const serviceTypes = [{
     icon: Church,
-    title: "Heliga mässan",
-    description: "Söndagsmässa, vardagsmässa"
+    title: "Söndagsmässa",
+    description: "Söndagsmässan är församlingens huvudsakliga gudstjänst på Herrens dag. Här samlas de troende kring Guds ord och firar den heliga eukaristin till åminnelse av Kristi uppståndelse."
+  }, {
+    icon: Church,
+    title: "Vardagsmässa",
+    description: "Vardagsmässan firas på vardagar i enklare form men med samma heliga eukaristi och nåd som på söndagen. Den ger möjlighet till regelbundet deltagande i kyrkans sakramentala liv."
   }, {
     icon: BookOpen,
     title: "Ordets gudstjänst",
-    description: "Bibelläsningar, predikan, förbön utan eukaristi"
+    description: "Ordets gudstjänst är en samling där Guds ord står i centrum genom bibelläsningar, predikan och gemensam förbön, utan firande av eukaristin."
   }, {
     icon: Heart,
     title: "Tidebön",
-    description: "Morgonbön (laudes), aftonbön (vesper)"
+    description: "Tidebönen är kyrkans gemensamma dagliga bön, där församlingen förenar sig med hela kyrkan i lovsång, tacksägelse och förbön."
   }, {
     icon: Cross,
-    title: "Andakter",
-    description: "Rosenkrans, korsvägsandakt, särskilda högtidsandakter"
+    title: "Rosenkransandakt",
+    description: "Rosenkransen är en meditativ bön där de troende, tillsammans med Jungfru Maria, begrundar Kristi liv, lidande och härlighet."
+  }, {
+    icon: Cross,
+    title: "Korsvägsandakt",
+    description: "Korsvägsandakten är en andakt där församlingen i bön följer Herren Jesus Kristus på hans lidandes väg, särskilt under fastetiden."
   }, {
     icon: Star,
-    title: "Tillbedjan",
-    description: "Eukaristisk tillbedjan (vid tillfälle)"
+    title: "Eukaristisk tillbedjan",
+    description: "Eukaristisk tillbedjan är en stund av stillhet och bön inför den heliga eukaristin, i vördnadsfull tillbedjan av Kristus själv."
   }, {
     icon: Users,
-    title: "Högtider",
-    description: "Firande av kyrkoårets högtider"
+    title: "Högtidsandakter",
+    description: "Högtidsandakter firas i anslutning till kyrkoårets stora högtider och hjälper församlingen att leva med i kyrkans liturgiska rytm."
   }];
   return <div className="min-h-screen bg-background">
       <Header />
