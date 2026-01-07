@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import gudstjanstHero from "@/assets/gudstjanst-hero.avif";
+import kontaktHero from "@/assets/kontakt-hero.avif";
 
 const Kontakt = () => {
   const contactInfo = [
@@ -46,7 +46,7 @@ const Kontakt = () => {
           <div
             className="relative text-center mb-12 -mx-6 px-6 py-16 md:py-24 rounded-md overflow-hidden"
             style={{
-              backgroundImage: `url(${gudstjanstHero})`,
+              backgroundImage: `url(${kontaktHero})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center 70%'
             }}
