@@ -19,9 +19,8 @@
     --popover-foreground: 220 25% 20%;
 
     /* Warm golden as primary */
-    --primary: 45 75% 45%;
+    --primary: 38 85% 50%;
     --primary-foreground: 0 0% 100%;
-
     /* Light neutral secondary */
     --secondary: 30 10% 96%;
     --secondary-foreground: 220 25% 20%;
@@ -38,14 +37,14 @@
 
     --border: 30 15% 88%;
     --input: 30 15% 90%;
-    --ring: 45 75% 45%;
+    --ring: 38 85% 50%;
 
     --radius: 0.75rem;
 
     /* Custom colors */
-    --gold: 45 75% 45%;
-    --gold-light: 48 65% 55%;
-    --gold-dark: 42 80% 35%;
+    --gold: 38 85% 50%;
+    --gold-light: 42 75% 58%;
+    --gold-dark: 35 90% 40%;
     --cream: 35 30% 96%;
     --cream-soft: 30 20% 92%;
     --slate: 220 25% 20%;
