@@ -51,9 +51,8 @@ const GudstjanstTyper = () => {
             <span className="font-body">Tillbaka till startsidan</span>
           </Link>
 
-          {/* Hero section */}
-          <div 
-            className="relative text-center mb-12 -mx-6 px-6 py-16 md:py-24 rounded-xl overflow-hidden"
+          <div
+            className="relative text-center mb-12 -mx-6 px-6 py-16 md:py-24 rounded-md overflow-hidden"
             style={{
               backgroundImage: `url(${gudstjanstHero})`,
               backgroundSize: 'cover',
