@@ -57,7 +57,7 @@ const GudstjanstTyper = () => {
             style={{
               backgroundImage: `url(${gudstjanstHero})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center 30%'
+              backgroundPosition: 'center 70%'
             }}
           >
             {/* Dark overlay */}
