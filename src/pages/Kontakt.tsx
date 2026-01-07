@@ -20,7 +20,7 @@ const Kontakt = () => {
     },
     {
       title: "Öppettider",
-      description: "Kyrkan är öppen måndag–lördag kl. 09:00–18:00 samt söndagar kl. 09:00–13:00. Välkommen in för bön och stilla reflektion."
+      description: "Måndag–lördag: 09:00–18:00\nSöndag: 09:00–13:00\n\nVälkommen in för bön och stilla reflektion."
     },
     {
       title: "Sociala medier",
@@ -72,7 +72,7 @@ const Kontakt = () => {
                 <h3 className="font-display text-xl text-foreground mb-2">
                   {info.title}
                 </h3>
-                <p className="font-body text-muted-foreground leading-relaxed">
+                <p className="font-body text-muted-foreground leading-relaxed whitespace-pre-line">
                   {info.description}
                 </p>
               </div>
