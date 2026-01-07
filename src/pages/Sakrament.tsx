@@ -52,7 +52,7 @@ const Sakrament = () => {
             style={{
               backgroundImage: `url(${sakramentHero})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center 55%'
+              backgroundPosition: 'center 47%'
             }}
           >
             {/* Dark overlay */}
