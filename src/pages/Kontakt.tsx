@@ -20,7 +20,7 @@ const Kontakt = () => {
     },
     {
       title: "Öppettider",
-      description: "Kyrkan är öppen tisdag–fredag kl. 10:00–16:00 samt söndagar kl. 09:30–12:00. Övriga tider efter överenskommelse med prästen."
+      description: "Kyrkan är öppen måndag–lördag kl. 09:00–18:00 samt söndagar kl. 09:00–13:00. Välkommen in för bön och stilla reflektion."
     },
     {
       title: "Sociala medier",
