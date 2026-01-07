@@ -8,8 +8,8 @@ const Header = () => {
   const navLinks = [
     { name: "Hem", href: "/" },
     { name: "Gudstjänster", href: "/gudstjanst-typer" },
+    { name: "Sakrament", href: "/sakrament" },
     { name: "Verksamhet", href: "/verksamhet" },
-    { name: "Andligt", href: "/sakrament" },
     { name: "Om oss", href: "/om-oss" },
     { name: "Kontakt", href: "/kontakt" },
   ];
