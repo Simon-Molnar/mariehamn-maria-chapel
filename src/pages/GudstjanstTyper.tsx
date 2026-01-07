@@ -8,7 +8,7 @@ const GudstjanstTyper = () => {
   const serviceTypes = [
     {
       title: "Söndagsmässa",
-      description: "Söndagsmässan är församlingens huvudsakliga gudstjänst på Herrens dag. Här samlas de troende kring Guds ord och firar den heliga eukaristin till åminnelse av Kristi uppståndelse."
+      description: "Söndagsmässan är församlingens huvudsakliga gudstjänst på Herrens dag. Här samlas församlingen kring Guds ord och firar den heliga eukaristin till åminnelse av Kristi uppståndelse."
     },
     {
       title: "Vardagsmässa",
