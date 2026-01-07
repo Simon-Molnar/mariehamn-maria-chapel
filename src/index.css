@@ -18,8 +18,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 25% 20%;
 
-    /* Teal as primary - calm, traditional */
-    --primary: 180 30% 35%;
+    /* Warm golden as primary */
+    --primary: 45 75% 45%;
     --primary-foreground: 0 0% 100%;
 
     /* Light neutral secondary */
@@ -38,14 +38,14 @@
 
     --border: 30 15% 88%;
     --input: 30 15% 90%;
-    --ring: 180 30% 35%;
+    --ring: 45 75% 45%;
 
     --radius: 0.75rem;
 
     /* Custom colors */
-    --teal: 180 30% 35%;
-    --teal-light: 180 28% 45%;
-    --teal-dark: 180 35% 28%;
+    --gold: 45 75% 45%;
+    --gold-light: 48 65% 55%;
+    --gold-dark: 42 80% 35%;
     --cream: 35 30% 96%;
     --cream-soft: 30 20% 92%;
     --slate: 220 25% 20%;
@@ -62,12 +62,12 @@
     /* Sidebar */
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 220 25% 20%;
-    --sidebar-primary: 180 30% 35%;
+    --sidebar-primary: 45 75% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 30 15% 95%;
     --sidebar-accent-foreground: 220 25% 20%;
     --sidebar-border: 30 15% 88%;
-    --sidebar-ring: 180 30% 35%;
+    --sidebar-ring: 45 75% 45%;
   }
 
   .dark {
@@ -77,8 +77,8 @@
     --card-foreground: 30 20% 95%;
     --popover: 220 18% 12%;
     --popover-foreground: 30 20% 95%;
-    --primary: 180 28% 42%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 48 70% 50%;
+    --primary-foreground: 220 20% 8%;
     --secondary: 220 15% 18%;
     --secondary-foreground: 30 20% 95%;
     --muted: 220 15% 18%;
@@ -89,15 +89,15 @@
     --destructive-foreground: 30 20% 95%;
     --border: 220 15% 22%;
     --input: 220 15% 20%;
-    --ring: 180 28% 42%;
+    --ring: 48 70% 50%;
     --sidebar-background: 220 20% 8%;
     --sidebar-foreground: 30 20% 95%;
-    --sidebar-primary: 180 28% 42%;
-    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-primary: 48 70% 50%;
+    --sidebar-primary-foreground: 220 20% 8%;
     --sidebar-accent: 220 15% 18%;
     --sidebar-accent-foreground: 30 20% 95%;
     --sidebar-border: 220 15% 22%;
-    --sidebar-ring: 180 28% 42%;
+    --sidebar-ring: 48 70% 50%;
   }
 }
 
@@ -116,20 +116,20 @@
 }
 
 @layer utilities {
-  .text-teal {
-    color: hsl(var(--teal));
+  .text-gold {
+    color: hsl(var(--gold));
   }
   
-  .bg-teal {
-    background-color: hsl(var(--teal));
+  .bg-gold {
+    background-color: hsl(var(--gold));
   }
 
   .text-cream {
     color: hsl(var(--cream));
   }
 
-  .border-teal {
-    border-color: hsl(var(--teal));
+  .border-gold {
+    border-color: hsl(var(--gold));
   }
 
   .shadow-card {
