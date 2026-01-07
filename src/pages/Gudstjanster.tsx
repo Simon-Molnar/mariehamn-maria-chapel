@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Calendar, Clock, MapPin, BookOpen, Filter } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, MapPin, BookOpen, Funnel } from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState } from "react";
@@ -74,14 +74,14 @@ const Gudstjanster = () => {
             to="/gudstjanst-typer" 
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft size={16} weight="light" />
             <span className="font-body">Tillbaka till gudstjänsttyper</span>
           </Link>
 
           {/* Hero section */}
           <div className="text-center mb-12">
             <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-              <Calendar className="w-10 h-10 text-primary" />
+              <Calendar size={40} weight="light" className="text-primary" />
             </div>
             <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">
               Gudstjänstkalender
@@ -98,17 +98,17 @@ const Gudstjanster = () => {
             </h2>
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div className="flex flex-col items-center">
-                <Calendar className="w-8 h-8 text-primary mb-3" />
+                <Calendar size={32} weight="light" className="text-primary mb-3" />
                 <span className="font-display text-lg text-foreground">Söndagar</span>
                 <span className="font-body text-muted-foreground">Kl. 10:00 – Söndagsmässa</span>
               </div>
               <div className="flex flex-col items-center">
-                <Clock className="w-8 h-8 text-primary mb-3" />
+                <Clock size={32} weight="light" className="text-primary mb-3" />
                 <span className="font-display text-lg text-foreground">Onsdagar</span>
                 <span className="font-body text-muted-foreground">Kl. 18:00 – Vardagsmässa</span>
               </div>
               <div className="flex flex-col items-center">
-                <MapPin className="w-8 h-8 text-primary mb-3" />
+                <MapPin size={32} weight="light" className="text-primary mb-3" />
                 <span className="font-display text-lg text-foreground">S:t Görans Kyrka</span>
                 <span className="font-body text-muted-foreground">Norra Esplanadgatan 1</span>
               </div>
@@ -119,7 +119,7 @@ const Gudstjanster = () => {
           <div className="max-w-5xl mx-auto mb-6">
             <div className="flex items-center gap-3 flex-wrap">
               <div className="flex items-center gap-2 text-muted-foreground">
-                <Filter className="w-4 h-4" />
+                <Funnel size={16} weight="light" />
                 <span className="font-body text-sm">Filtrera:</span>
               </div>
               {categories.map((category) => (
@@ -191,7 +191,7 @@ const Gudstjanster = () => {
                 to="/gudstjanst-typer" 
                 className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-body"
               >
-                <BookOpen className="w-4 h-4" />
+                <BookOpen size={16} weight="light" />
                 Läs mer om gudstjänsttyperna
               </Link>
               <Link 
