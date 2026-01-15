@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CartDrawer } from "@/components/CartDrawer";
 import { ProductCard } from "@/components/ProductCard";
-import { ShopifyProduct, storefrontApiRequest, STOREFRONT_PRODUCTS_QUERY } from "@/lib/shopify";
+import { ShopifyProduct, fetchProducts } from "@/lib/shopify";
 import butikHero from "@/assets/butik-hero.avif";
 
 const Butik = () => {
@@ -16,26 +16,16 @@ const Butik = () => {
   useEffect(() => {
     let isMounted = true;
     
-    const fetchProducts = async (retryCount = 0) => {
+    const loadProducts = async (retryCount = 0) => {
       try {
-        console.log('Starting to fetch products... attempt:', retryCount + 1);
-        const data = await storefrontApiRequest(STOREFRONT_PRODUCTS_QUERY, { first: 20 });
-        console.log('Fetched data:', data);
+        console.log('Loading products... attempt:', retryCount + 1);
+        const productList = await fetchProducts();
+        console.log('Products loaded:', productList.length);
         
         if (!isMounted) return;
         
-        if (data?.data?.products?.edges) {
-          console.log('Products found:', data.data.products.edges.length);
-          setProducts(data.data.products.edges);
-          setError(null);
-        } else if (retryCount < 2) {
-          // Retry after a short delay
-          console.log('No products found, retrying...');
-          setTimeout(() => fetchProducts(retryCount + 1), 1000);
-          return;
-        } else {
-          console.log('No products in response after retries');
-        }
+        setProducts(productList);
+        setError(null);
       } catch (err) {
         console.error("Failed to fetch products:", err);
         if (isMounted) {
@@ -48,7 +38,7 @@ const Butik = () => {
       }
     };
 
-    fetchProducts();
+    loadProducts();
     
     return () => {
       isMounted = false;

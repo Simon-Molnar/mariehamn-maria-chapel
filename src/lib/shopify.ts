@@ -1,9 +1,8 @@
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 export const SHOPIFY_API_VERSION = '2025-07';
 export const SHOPIFY_STORE_PERMANENT_DOMAIN = 'maria-s-parish-online-68mbr.myshopify.com';
-export const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
-export const SHOPIFY_STOREFRONT_TOKEN = '84e83a3165ef2effccd0aa26c526c57b';
 
 export interface ShopifyProduct {
   node: {
@@ -49,42 +48,80 @@ export interface ShopifyProduct {
   };
 }
 
-export async function storefrontApiRequest(query: string, variables: Record<string, unknown> = {}) {
+export async function fetchProducts(): Promise<ShopifyProduct[]> {
   try {
-    console.log('Fetching from Shopify Storefront API...');
+    console.log('Fetching products via Admin API...');
     
-    const response = await fetch(SHOPIFY_STOREFRONT_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN
-      },
-      body: JSON.stringify({
-        query,
-        variables,
-      }),
+    const { data, error } = await supabase.functions.invoke('shopify-admin', {
+      body: { action: 'list' },
     });
 
-    console.log('Shopify response status:', response.status);
-
-    if (response.status === 402) {
-      toast.error("Shopify: Payment required", {
-        description: "Shopify API access requires an active Shopify billing plan.",
-      });
-      return null;
+    if (error) {
+      console.error('Edge function error:', error);
+      throw new Error(error.message || 'Failed to fetch products');
     }
 
-    if (!response.ok) {
-      console.error('Shopify API error:', response.status, response.statusText);
-      throw new Error(`HTTP error! status: ${response.status}`);
+    console.log('Products data received:', data);
+    
+    if (data?.error) {
+      throw new Error(data.error);
     }
 
-    const data = await response.json();
+    return data?.data?.products?.edges || [];
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    throw error;
+  }
+}
+
+export async function fetchProductByHandle(handle: string): Promise<ShopifyProduct['node'] | null> {
+  try {
+    console.log('Fetching product by handle:', handle);
+    
+    // Use Admin API to list products and find by handle
+    const { data, error } = await supabase.functions.invoke('shopify-admin', {
+      body: { action: 'list' },
+    });
+
+    if (error) {
+      console.error('Edge function error:', error);
+      throw new Error(error.message || 'Failed to fetch product');
+    }
+
+    const products = data?.data?.products?.edges || [];
+    const product = products.find((p: ShopifyProduct) => p.node.handle === handle);
+    
+    return product?.node || null;
+  } catch (error) {
+    console.error('Error fetching product:', error);
+    throw error;
+  }
+}
+
+// Storefront API request for checkout (still needed for cart creation)
+export async function storefrontApiRequest(query: string, variables: Record<string, unknown> = {}) {
+  try {
+    console.log('Calling Shopify Storefront API via edge function...');
+    
+    const { data, error } = await supabase.functions.invoke('shopify-storefront', {
+      body: { query, variables },
+    });
+
+    if (error) {
+      console.error('Edge function error:', error);
+      throw new Error(error.message || 'Failed to call Shopify API');
+    }
+
     console.log('Shopify data received:', data);
     
-    if (data.errors) {
-      console.error('Shopify GraphQL errors:', data.errors);
-      throw new Error(`Error calling Shopify: ${data.errors.map((e: { message: string }) => e.message).join(', ')}`);
+    if (data?.error) {
+      if (data.error.includes('402')) {
+        toast.error("Shopify: Payment required", {
+          description: "Shopify API access requires an active Shopify billing plan.",
+        });
+        return null;
+      }
+      throw new Error(data.error);
     }
 
     return data;
