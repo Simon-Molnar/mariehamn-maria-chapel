@@ -42,7 +42,7 @@ const Butik = () => {
             className="absolute inset-0 bg-cover bg-center rounded-b-md"
             style={{
               backgroundImage: `url(${butikHero})`,
-              backgroundPosition: 'center 50%'
+              backgroundPosition: '70% 30%'
             }}
           />
           <div className="absolute inset-0 bg-foreground/60 rounded-b-md" />
