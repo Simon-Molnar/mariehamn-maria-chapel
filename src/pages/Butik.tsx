@@ -11,22 +11,48 @@ import butikHero from "@/assets/butik-hero.avif";
 const Butik = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    let isMounted = true;
+    
+    const fetchProducts = async (retryCount = 0) => {
       try {
+        console.log('Starting to fetch products... attempt:', retryCount + 1);
         const data = await storefrontApiRequest(STOREFRONT_PRODUCTS_QUERY, { first: 20 });
+        console.log('Fetched data:', data);
+        
+        if (!isMounted) return;
+        
         if (data?.data?.products?.edges) {
+          console.log('Products found:', data.data.products.edges.length);
           setProducts(data.data.products.edges);
+          setError(null);
+        } else if (retryCount < 2) {
+          // Retry after a short delay
+          console.log('No products found, retrying...');
+          setTimeout(() => fetchProducts(retryCount + 1), 1000);
+          return;
+        } else {
+          console.log('No products in response after retries');
         }
-      } catch (error) {
-        console.error("Failed to fetch products:", error);
+      } catch (err) {
+        console.error("Failed to fetch products:", err);
+        if (isMounted) {
+          setError(err instanceof Error ? err.message : 'Ett fel uppstod');
+        }
       } finally {
-        setIsLoading(false);
+        if (isMounted) {
+          setIsLoading(false);
+        }
       }
     };
 
     fetchProducts();
+    
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
@@ -91,6 +117,21 @@ const Butik = () => {
               {products.map((product) => (
                 <ProductCard key={product.node.id} product={product} />
               ))}
+            </div>
+          ) : error ? (
+            <div className="bg-destructive/10 border border-destructive rounded-xl p-12 max-w-2xl mx-auto text-center">
+              <h2 className="font-display text-2xl text-foreground mb-4">
+                Kunde inte ladda produkter
+              </h2>
+              <p className="font-body text-muted-foreground mb-6">
+                {error}
+              </p>
+              <button 
+                onClick={() => window.location.reload()}
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
+              >
+                Försök igen
+              </button>
             </div>
           ) : (
             <div className="bg-card rounded-xl p-12 shadow-card max-w-2xl mx-auto text-center">
