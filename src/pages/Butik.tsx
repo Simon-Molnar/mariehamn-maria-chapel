@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
+import butikHero from "@/assets/butik-hero.avif";
 
 const Butik = () => {
   const products = [
@@ -40,8 +41,8 @@ const Butik = () => {
           <div 
             className="absolute inset-0 bg-cover bg-center rounded-b-md"
             style={{
-              backgroundImage: `url('/placeholder.svg')`,
-              backgroundPosition: 'center 60%'
+              backgroundImage: `url(${butikHero})`,
+              backgroundPosition: 'center 50%'
             }}
           />
           <div className="absolute inset-0 bg-foreground/60 rounded-b-md" />
