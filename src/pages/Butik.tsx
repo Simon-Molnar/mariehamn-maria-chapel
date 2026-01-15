@@ -69,14 +69,14 @@ const Butik = () => {
 
         {/* Products Grid */}
         <section className="py-8 px-6 pb-24">
-          <div className="container mx-auto max-w-6xl">
-            <div className="grid md:grid-cols-2 gap-8">
+          <div className="container mx-auto max-w-4xl">
+            <div className="grid md:grid-cols-2 gap-6">
               {products.map((product, index) => (
                 <div 
                   key={index}
-                  className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow"
+                  className="bg-card rounded-xl p-6 shadow-card hover:shadow-hover transition-shadow"
                 >
-                  <h3 className="font-display text-xl text-primary mb-4">
+                  <h3 className="font-display text-xl text-foreground mb-2">
                     {product.title}
                   </h3>
                   <p className="font-body text-muted-foreground leading-relaxed">
@@ -89,27 +89,21 @@ const Butik = () => {
         </section>
 
         {/* Contact CTA */}
-        <section className="py-16 px-6 bg-muted/30">
-          <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="font-display text-2xl md:text-3xl text-primary mb-6">
-              Besök eller beställ
-            </h2>
-            <p className="font-body text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Butiken är öppen i samband med söndagens mässa. Du kan även kontakta oss för att höra om tillgänglighet eller för att göra en beställning.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                to="/kontakt"
-                className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-md font-body font-medium hover:bg-primary/90 transition-colors"
+        <section className="py-16 px-6">
+          <div className="container mx-auto max-w-3xl">
+            <div className="bg-card rounded-xl p-8 shadow-card text-center">
+              <h2 className="font-display text-2xl text-foreground mb-4">
+                Besök eller beställ
+              </h2>
+              <p className="font-body text-muted-foreground mb-6">
+                Butiken är öppen i samband med söndagens mässa. Du kan även kontakta oss för att höra om tillgänglighet eller för att göra en beställning.
+              </p>
+              <a 
+                href="mailto:info@stgoran.ax" 
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
               >
                 Kontakta oss
-              </Link>
-              <Link 
-                to="/"
-                className="inline-block border border-primary text-primary px-8 py-3 rounded-md font-body font-medium hover:bg-primary/10 transition-colors"
-              >
-                Tillbaka till startsidan
-              </Link>
+              </a>
             </div>
           </div>
         </section>
