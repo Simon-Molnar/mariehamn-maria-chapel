@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CartDrawer } from "@/components/CartDrawer";
 import { Button } from "@/components/ui/button";
-import { storefrontApiRequest, STOREFRONT_PRODUCT_BY_HANDLE_QUERY, ShopifyProduct } from "@/lib/shopify";
+import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
 
@@ -24,9 +24,9 @@ const ProduktDetalj = () => {
       if (!handle) return;
       
       try {
-        const data = await storefrontApiRequest(STOREFRONT_PRODUCT_BY_HANDLE_QUERY, { handle });
-        if (data?.data?.productByHandle) {
-          setProduct(data.data.productByHandle);
+        const productData = await fetchProductByHandle(handle);
+        if (productData) {
+          setProduct(productData);
         }
       } catch (error) {
         console.error("Failed to fetch product:", error);

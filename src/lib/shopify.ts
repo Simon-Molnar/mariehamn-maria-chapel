@@ -1,8 +1,9 @@
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 
 export const SHOPIFY_API_VERSION = '2025-07';
 export const SHOPIFY_STORE_PERMANENT_DOMAIN = 'maria-s-parish-online-68mbr.myshopify.com';
+const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
+const SHOPIFY_STOREFRONT_TOKEN = '84e83a3165ef2effccd0aa26c526c57b';
 
 export interface ShopifyProduct {
   node: {
@@ -48,90 +49,38 @@ export interface ShopifyProduct {
   };
 }
 
-export async function fetchProducts(): Promise<ShopifyProduct[]> {
-  try {
-    console.log('Fetching products via Admin API...');
-    
-    const { data, error } = await supabase.functions.invoke('shopify-admin', {
-      body: { action: 'list' },
-    });
-
-    if (error) {
-      console.error('Edge function error:', error);
-      throw new Error(error.message || 'Failed to fetch products');
-    }
-
-    console.log('Products data received:', data);
-    
-    if (data?.error) {
-      throw new Error(data.error);
-    }
-
-    return data?.data?.products?.edges || [];
-  } catch (error) {
-    console.error('Error fetching products:', error);
-    throw error;
-  }
-}
-
-export async function fetchProductByHandle(handle: string): Promise<ShopifyProduct['node'] | null> {
-  try {
-    console.log('Fetching product by handle:', handle);
-    
-    // Use Admin API to list products and find by handle
-    const { data, error } = await supabase.functions.invoke('shopify-admin', {
-      body: { action: 'list' },
-    });
-
-    if (error) {
-      console.error('Edge function error:', error);
-      throw new Error(error.message || 'Failed to fetch product');
-    }
-
-    const products = data?.data?.products?.edges || [];
-    const product = products.find((p: ShopifyProduct) => p.node.handle === handle);
-    
-    return product?.node || null;
-  } catch (error) {
-    console.error('Error fetching product:', error);
-    throw error;
-  }
-}
-
-// Storefront API request for checkout (still needed for cart creation)
+// Storefront API helper function
 export async function storefrontApiRequest(query: string, variables: Record<string, unknown> = {}) {
-  try {
-    console.log('Calling Shopify Storefront API via edge function...');
-    
-    const { data, error } = await supabase.functions.invoke('shopify-storefront', {
-      body: { query, variables },
+  const response = await fetch(SHOPIFY_STOREFRONT_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN,
+    },
+    body: JSON.stringify({ query, variables }),
+  });
+
+  if (response.status === 402) {
+    toast.error("Shopify: Payment required", {
+      description: "Shopify API access requires an active Shopify billing plan.",
     });
-
-    if (error) {
-      console.error('Edge function error:', error);
-      throw new Error(error.message || 'Failed to call Shopify API');
-    }
-
-    console.log('Shopify data received:', data);
-    
-    if (data?.error) {
-      if (data.error.includes('402')) {
-        toast.error("Shopify: Payment required", {
-          description: "Shopify API access requires an active Shopify billing plan.",
-        });
-        return null;
-      }
-      throw new Error(data.error);
-    }
-
-    return data;
-  } catch (error) {
-    console.error('Shopify fetch error:', error);
-    throw error;
+    return null;
   }
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  if (data.errors) {
+    throw new Error(`Error calling Shopify: ${data.errors.map((e: any) => e.message).join(', ')}`);
+  }
+
+  return data;
 }
 
-export const STOREFRONT_PRODUCTS_QUERY = `
+const STOREFRONT_PRODUCTS_QUERY = `
   query GetProducts($first: Int!) {
     products(first: $first) {
       edges {
@@ -181,7 +130,7 @@ export const STOREFRONT_PRODUCTS_QUERY = `
   }
 `;
 
-export const STOREFRONT_PRODUCT_BY_HANDLE_QUERY = `
+const STOREFRONT_PRODUCT_BY_HANDLE_QUERY = `
   query GetProductByHandle($handle: String!) {
     productByHandle(handle: $handle) {
       id
@@ -226,6 +175,16 @@ export const STOREFRONT_PRODUCT_BY_HANDLE_QUERY = `
     }
   }
 `;
+
+export async function fetchProducts(): Promise<ShopifyProduct[]> {
+  const data = await storefrontApiRequest(STOREFRONT_PRODUCTS_QUERY, { first: 50 });
+  return data?.data?.products?.edges || [];
+}
+
+export async function fetchProductByHandle(handle: string): Promise<ShopifyProduct['node'] | null> {
+  const data = await storefrontApiRequest(STOREFRONT_PRODUCT_BY_HANDLE_QUERY, { handle });
+  return data?.data?.productByHandle || null;
+}
 
 export const CART_CREATE_MUTATION = `
   mutation cartCreate($input: CartInput!) {
