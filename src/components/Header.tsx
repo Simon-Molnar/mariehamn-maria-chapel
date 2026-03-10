@@ -20,7 +20,7 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="group">
+          <Link to="/" className="group">
             <span className="font-display text-xl text-primary">
               Mariehamns Katolska Församling
             </span>
