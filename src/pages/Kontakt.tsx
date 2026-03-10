@@ -16,7 +16,7 @@ const Kontakt = () => {
     },
     {
       title: "E-post",
-      description: "Skicka ett meddelande till info@stgoran.ax så återkommer en representant från församlingen så snart som möjligt."
+      description: "Skicka ett meddelande till info@mariehamnskatolskaforsamling.ax så återkommer en representant från församlingen så snart som möjligt."
     },
     {
       title: "Öppettider",
