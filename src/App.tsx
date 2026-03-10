@@ -8,7 +8,7 @@ import Gudstjanster from "./pages/Gudstjanster";
 import GudstjanstTyper from "./pages/GudstjanstTyper";
 import Verksamhet from "./pages/Verksamhet";
 import Sakrament from "./pages/Sakrament";
-import Andligt from "./pages/Andligt";
+
 import Butik from "./pages/Butik";
 import ProduktDetalj from "./pages/ProduktDetalj";
 import OmOss from "./pages/OmOss";
