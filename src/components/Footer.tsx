@@ -27,8 +27,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Envelope size={20} weight="light" className="text-primary flex-shrink-0" />
-                <a href="mailto:info@katolskakyrkan.ax" className="hover:text-primary transition-colors">
-                  info@katolskakyrkan.ax
+                <a href="mailto:info@mariehamnskatolskaforsamling.ax" className="hover:text-primary transition-colors">
+                  info@mariehamnskatolskaforsamling.ax
                 </a>
               </div>
             </div>
