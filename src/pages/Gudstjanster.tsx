@@ -110,7 +110,7 @@ const Gudstjanster = () => {
               <div className="flex flex-col items-center">
                 <MapPin size={32} weight="light" className="text-primary mb-3" />
                 <span className="font-display text-lg text-foreground">S:t Görans Kyrka</span>
-                <span className="font-body text-muted-foreground">Norra Esplanadgatan 1</span>
+                <span className="font-body text-muted-foreground">Östra Esplanadgatan 6</span>
               </div>
             </div>
           </div>
