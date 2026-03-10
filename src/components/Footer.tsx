@@ -15,7 +15,7 @@ const Footer = () => {
                 <MapPin size={20} weight="light" className="text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="font-medium text-foreground">S:t Görans Katolska Kyrka</p>
-                  <p>Norra Esplanadgatan 1</p>
+                  <p>Östra Esplanadgatan 6</p>
                   <p>22100 Mariehamn, Åland</p>
                 </div>
               </div>
