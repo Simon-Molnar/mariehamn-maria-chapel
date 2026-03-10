@@ -12,7 +12,7 @@ const Kontakt = () => {
     },
     {
       title: "Telefon",
-      description: "Kontakta prästen för samtal om sakrament, andlig vägledning eller andra frågor. Ring +358 18 123 456."
+      description: "Kontakta prästen för samtal om sakrament, andlig vägledning eller andra frågor. Ring +358 18 12345."
     },
     {
       title: "E-post",
