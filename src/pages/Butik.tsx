@@ -132,7 +132,7 @@ const Butik = () => {
                 Butiken är under uppbyggnad. Kontakta oss gärna för information om vårt sortiment av böcker och andaktsföremål.
               </p>
               <a 
-                href="mailto:info@stgoran.ax" 
+                href="mailto:info@mariehamnskatolskaforsamling.ax" 
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
               >
                 Kontakta oss
@@ -149,7 +149,7 @@ const Butik = () => {
               Butiken är öppen i samband med söndagens mässa. Du kan även kontakta oss för att höra om tillgänglighet eller för att göra en beställning.
             </p>
             <a 
-              href="mailto:info@stgoran.ax" 
+              href="mailto:info@mariehamnskatolskaforsamling.ax"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
             >
               Kontakta oss

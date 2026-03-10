@@ -93,7 +93,7 @@ const Sakrament = () => {
               Kontakta vår präst för ett personligt samtal.
             </p>
             <a 
-              href="mailto:info@stgoran.ax" 
+              href="mailto:info@mariehamnskatolskaforsamling.ax" 
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
             >
               Kontakta prästen

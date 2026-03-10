@@ -56,7 +56,7 @@ const ContactSection = () => {
                     href="tel:+3581812345" 
                     className="font-body text-primary hover:underline"
                   >
-                    +358 18 123 4567
+                    +358 18 12345
                   </a>
                 </div>
               </div>

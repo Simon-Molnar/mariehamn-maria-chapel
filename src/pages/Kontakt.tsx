@@ -90,7 +90,7 @@ const Kontakt = () => {
             </p>
             <div className="aspect-video max-w-2xl mx-auto bg-muted rounded-lg flex items-center justify-center">
               <p className="font-body text-muted-foreground">
-                Kaptensgatan 6, 22100 Mariehamn
+                Östra Esplanadgatan 6, 22100 Mariehamn
               </p>
             </div>
           </div>

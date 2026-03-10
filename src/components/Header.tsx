@@ -27,7 +27,7 @@ const Header = () => {
             <span className="block text-xs text-muted-foreground tracking-widest uppercase">
               S:t Görans Kyrka
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
