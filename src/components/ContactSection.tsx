@@ -41,7 +41,7 @@ const ContactSection = () => {
                     href="mailto:info@mariehamnskatolskaforsamling.ax" 
                     className="font-body text-primary hover:underline"
                   >
-                    kontakt@stmaria-mariehamn.ax
+                    info@mariehamnskatolskaforsamling.ax
                   </a>
                 </div>
               </div>
