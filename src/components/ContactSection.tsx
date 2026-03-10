@@ -38,7 +38,7 @@ const ContactSection = () => {
                 <div>
                   <h3 className="font-display text-lg text-foreground mb-1">E-post</h3>
                   <a 
-                    href="mailto:kontakt@stmaria-mariehamn.ax" 
+                    href="mailto:info@mariehamnskatolskaforsamling.ax" 
                     className="font-body text-primary hover:underline"
                   >
                     kontakt@stmaria-mariehamn.ax
