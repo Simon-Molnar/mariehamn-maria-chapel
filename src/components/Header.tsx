@@ -20,14 +20,14 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="group">
+          <Link to="/" className="group">
             <span className="font-display text-xl text-primary">
               Mariehamns Katolska Församling
             </span>
             <span className="block text-xs text-muted-foreground tracking-widest uppercase">
               S:t Görans Kyrka
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">

@@ -50,7 +50,7 @@ const Gudstjanster = () => {
     
     // Högtider
     { date: "2 februari 2026", sortDate: "2026-02-02", day: "Söndag", time: "10:00", type: "Kyndelsmässan", category: "Högtid" as ServiceCategory, note: "Herrens frambärande i templet" },
-    { date: "17 februari 2026", sortDate: "2026-02-17", day: "Tisdag", time: "18:00", type: "Askonsdagen", category: "Högtid" as ServiceCategory, note: "Fastans inledning" },
+    { date: "18 februari 2026", sortDate: "2026-02-18", day: "Onsdag", time: "18:00", type: "Askonsdagen", category: "Högtid" as ServiceCategory, note: "Fastans inledning" },
     { date: "5 april 2026", sortDate: "2026-04-05", day: "Söndag", time: "10:00", type: "Palmsöndagen", category: "Högtid" as ServiceCategory, note: "Stilla veckan inleds" },
     { date: "9 april 2026", sortDate: "2026-04-09", day: "Torsdag", time: "18:00", type: "Skärtorsdagen", category: "Högtid" as ServiceCategory, note: "Fottvagning och nattvard" },
     { date: "10 april 2026", sortDate: "2026-04-10", day: "Fredag", time: "15:00", type: "Långfredagen", category: "Högtid" as ServiceCategory, note: "Herrens lidande" },
@@ -110,7 +110,7 @@ const Gudstjanster = () => {
               <div className="flex flex-col items-center">
                 <MapPin size={32} weight="light" className="text-primary mb-3" />
                 <span className="font-display text-lg text-foreground">S:t Görans Kyrka</span>
-                <span className="font-body text-muted-foreground">Norra Esplanadgatan 1</span>
+                <span className="font-body text-muted-foreground">Östra Esplanadgatan 6</span>
               </div>
             </div>
           </div>

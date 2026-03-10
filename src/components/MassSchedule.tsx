@@ -62,8 +62,8 @@ const MassSchedule = () => {
             </div>
             <h3 className="font-display text-2xl text-foreground mb-4">Hitta till oss</h3>
             <address className="font-body text-muted-foreground not-italic mb-6 leading-relaxed">
-              S:t Maria Katolska Kyrka<br />
-              Kyrkogatan 10<br />
+              S:t Görans Katolska Kyrka<br />
+              Östra Esplanadgatan 6<br />
               22100 Mariehamn<br />
               Åland, Finland
             </address>

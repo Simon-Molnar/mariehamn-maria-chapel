@@ -8,15 +8,15 @@ const Kontakt = () => {
   const contactInfo = [
     {
       title: "Adress",
-      description: "S:t Görans kyrka, Kaptensgatan 6, 22100 Mariehamn, Åland, Finland"
+      description: "S:t Görans kyrka, Östra Esplanadgatan 6, 22100 Mariehamn, Åland"
     },
     {
       title: "Telefon",
-      description: "Kontakta prästen för samtal om sakrament, andlig vägledning eller andra frågor. Ring +358 18 123 456."
+      description: "Kontakta prästen för samtal om sakrament, andlig vägledning eller andra frågor. Ring +358 18 12345."
     },
     {
       title: "E-post",
-      description: "Skicka ett meddelande till info@stgoran.ax så återkommer en representant från församlingen så snart som möjligt."
+      description: "Skicka ett meddelande till info@mariehamnskatolskaforsamling.ax så återkommer en representant från församlingen så snart som möjligt."
     },
     {
       title: "Öppettider",
@@ -90,7 +90,7 @@ const Kontakt = () => {
             </p>
             <div className="aspect-video max-w-2xl mx-auto bg-muted rounded-lg flex items-center justify-center">
               <p className="font-body text-muted-foreground">
-                Kaptensgatan 6, 22100 Mariehamn
+                Östra Esplanadgatan 6, 22100 Mariehamn
               </p>
             </div>
           </div>

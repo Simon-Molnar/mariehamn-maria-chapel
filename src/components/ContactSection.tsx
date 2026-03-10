@@ -38,10 +38,10 @@ const ContactSection = () => {
                 <div>
                   <h3 className="font-display text-lg text-foreground mb-1">E-post</h3>
                   <a 
-                    href="mailto:kontakt@stmaria-mariehamn.ax" 
+                    href="mailto:info@mariehamnskatolskaforsamling.ax" 
                     className="font-body text-primary hover:underline"
                   >
-                    kontakt@stmaria-mariehamn.ax
+                    info@mariehamnskatolskaforsamling.ax
                   </a>
                 </div>
               </div>
@@ -53,10 +53,10 @@ const ContactSection = () => {
                 <div>
                   <h3 className="font-display text-lg text-foreground mb-1">Telefon</h3>
                   <a 
-                    href="tel:+358181234567" 
+                    href="tel:+3581812345" 
                     className="font-body text-primary hover:underline"
                   >
-                    +358 18 123 4567
+                    +358 18 12345
                   </a>
                 </div>
               </div>

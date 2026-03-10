@@ -8,7 +8,7 @@ import Gudstjanster from "./pages/Gudstjanster";
 import GudstjanstTyper from "./pages/GudstjanstTyper";
 import Verksamhet from "./pages/Verksamhet";
 import Sakrament from "./pages/Sakrament";
-import Andligt from "./pages/Andligt";
+
 import Butik from "./pages/Butik";
 import ProduktDetalj from "./pages/ProduktDetalj";
 import OmOss from "./pages/OmOss";
@@ -29,7 +29,7 @@ const App = () => (
           <Route path="/gudstjanst-typer" element={<GudstjanstTyper />} />
           <Route path="/verksamhet" element={<Verksamhet />} />
           <Route path="/sakrament" element={<Sakrament />} />
-          <Route path="/andligt" element={<Andligt />} />
+          
           <Route path="/butik" element={<Butik />} />
           <Route path="/butik/produkt/:handle" element={<ProduktDetalj />} />
           <Route path="/om-oss" element={<OmOss />} />
