@@ -8,7 +8,7 @@ const Kontakt = () => {
   const contactInfo = [
     {
       title: "Adress",
-      description: "S:t Görans kyrka, Kaptensgatan 6, 22100 Mariehamn, Åland, Finland"
+      description: "S:t Görans kyrka, Östra Esplanadgatan 6, 22100 Mariehamn, Åland"
     },
     {
       title: "Telefon",
