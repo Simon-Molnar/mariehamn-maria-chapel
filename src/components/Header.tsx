@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border">
-      <div className="w-full px-2 sm:px-4 lg:px-6 py-2">
+      <div className="w-full pl-0 pr-2 sm:pr-4 lg:pr-6 py-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="group">
