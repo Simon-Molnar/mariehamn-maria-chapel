@@ -1,8 +1,8 @@
 const WelcomeSection = () => {
-  return <section id="om-oss" className="py-20 bg-background">
+    return <section id="om-oss" className="py-20 bg-secondary">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display text-3xl md:text-4xl text-foreground mb-6">
+          <h2 className="font-display text-3xl md:text-4xl text-foreground mb-8 border-b-2 border-primary pb-4 inline-block">
             Välkommen till S:t Görans kyrka
           </h2>
           <p className="font-body text-lg text-muted-foreground leading-relaxed mb-6">
