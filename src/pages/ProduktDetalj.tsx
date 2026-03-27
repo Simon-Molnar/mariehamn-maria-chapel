@@ -82,18 +82,14 @@ const ProduktDetalj = () => {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-background">
-        <Header />
-        <main className="pt-24 pb-16">
-          <div className="container mx-auto px-6 text-center">
-            <h1 className="font-display text-3xl mb-4">Produkten hittades inte</h1>
-            <Link to="/butik" className="text-primary hover:underline font-body">
-              Tillbaka till butiken
-            </Link>
-          </div>
-        </main>
-        <Footer />
-      </div>
+      <PageLayout>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+          <h1 className="font-display text-3xl mb-4">Produkten hittades inte</h1>
+          <Link to="/butik" className="text-primary hover:underline font-body">
+            Tillbaka till butiken
+          </Link>
+        </div>
+      </PageLayout>
     );
   }
 
