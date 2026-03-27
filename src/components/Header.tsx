@@ -21,7 +21,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="group">
-            <span className="font-display text-xl text-primary">
+            <span className="font-display text-xl text-[#e1af33]">
               Mariehamns Katolska Församling
             </span>
             <span className="block text-xs text-muted-foreground tracking-widest uppercase">
