@@ -3,8 +3,8 @@ import { MapPin, Phone, Envelope, FacebookLogo } from "@phosphor-icons/react";
 const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Kontakta Oss */}
           <div>
             <h3 className="font-display text-xl font-semibold text-foreground mb-6">
@@ -52,6 +52,23 @@ const Footer = () => {
               <FacebookLogo size={20} weight="light" />
               Följ oss på Facebook
             </a>
+          </div>
+
+          {/* Gudstjänsttider */}
+          <div>
+            <h3 className="font-display text-xl font-semibold text-foreground mb-6">
+              Gudstjänsttider
+            </h3>
+            <div className="space-y-3 font-body text-muted-foreground">
+              <div>
+                <p className="font-medium text-foreground">Söndagsmässa</p>
+                <p>Kl. 10:00</p>
+              </div>
+              <div>
+                <p className="font-medium text-foreground">Vardagsmässa (onsdag)</p>
+                <p>Kl. 18:00</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
