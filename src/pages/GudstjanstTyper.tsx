@@ -1,111 +1,240 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "@phosphor-icons/react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import PageLayout from "@/components/PageLayout";
+import PageHero from "@/components/PageHero";
+import Section from "@/components/Section";
 import gudstjanstHero from "@/assets/gudstjanst-hero.avif";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const GudstjanstTyper = () => {
   const serviceTypes = [
     {
-      title: "Söndagsmässa",
-      description: "Söndagsmässan är församlingens huvudsakliga gudstjänst på Herrens dag. Här samlas församlingen kring Guds ord och firar den heliga eukaristin till åminnelse av Kristi uppståndelse."
+      title: "Mässa",
+      description:
+        "Mässan är den katolska gudstjänstens hjärta. Här samlas församlingen för att lyssna till Guds ord och fira eukaristin – det heliga sakrament där bröd och vin blir Kristi kropp och blod. Mässan firas på söndagar och vardagar.",
+      practical: "Mässan varar cirka en timme. Alla är välkomna att delta, även om man inte är katolik.",
+      cta: { label: "Se mässtider", href: "/gudstjanster" },
     },
     {
-      title: "Vardagsmässa",
-      description: "Vardagsmässan firas på vardagar i enklare form men med samma heliga eukaristi och nåd som på söndagen. Den ger möjlighet till regelbundet deltagande i kyrkans sakramentala liv."
+      title: "Eukaristisk tillbedjan",
+      description:
+        "Under eukaristisk tillbedjan placeras det konsekrerade brödet synligt på altaret. Församlingen samlas i tyst bön och tillbedjan inför Kristus, närvarande i sakramentet.",
+      practical: "Man sitter eller knäböjer i tystnad. Inga förkunskaper behövs – kom som du är.",
     },
     {
-      title: "Laudes (Morgonbönen)",
-      description: "Kyrkans morgonbön som ber vid dagens början för att tacka Gud för den nya dagen och be om hans välsignelse och ledning."
-    },
-    {
-      title: "Vesper (Aftonbönen)",
-      description: "Kyrkans aftonbön som avslutar arbetsdagen med tacksägelse och reflektion, och förenar församlingen med hela kyrkans bön världen över."
+      title: "Bikt",
+      description:
+        "Bikten, eller försoningens sakrament, är ett personligt samtal med en präst där man bekänner sina synder och tar emot Guds förlåtelse. Prästen har absolut tystnadsplikt.",
+      practical: "Bikt erbjuds efter överenskommelse med prästen. Första gången? Prästen vägleder dig steg för steg.",
+      cta: { label: "Kontakta prästen", href: "/kontakt" },
     },
     {
       title: "Rosenkransbön",
-      description: "Rosenkransen är en meditativ bön där de troende, tillsammans med Jungfru Maria, begrundar Kristi liv, lidande och härlighet."
+      description:
+        "Rosenkransen är en meditativ bön där man tillsammans med Jungfru Maria begrundar händelser ur Jesu liv. Bönen bes gemensamt i församlingen, ofta före en mässa.",
+      practical: "Texten följer ett fast mönster som är lätt att lära sig. Alla är välkomna att delta.",
     },
     {
-      title: "Högtidsandakter",
-      description: "Högtidsandakter firas i anslutning till kyrkoårets stora högtider och hjälper församlingen att leva med i kyrkans liturgiska rytm."
-    }
+      title: "Vesper (Aftonbön)",
+      description:
+        "Vesper är kyrkans traditionella aftonbön med psalmer, bibelläsning och böner. Den avslutar arbetsdagen med tacksägelse och förenar församlingen med hela kyrkans bön världen över.",
+      practical: "Vespern följer en fast ordning. Böcker finns tillgängliga i kyrkan.",
+    },
+    {
+      title: "Andakt",
+      description:
+        "Andakter är kortare gudstjänster med bön, sång och reflektion, ofta knutna till kyrkoårets högtider. Exempel är korsvägsandakt under fastetiden och majandakt till Jungfru Maria.",
+      practical: "Andakterna är öppna för alla och kräver inga förberedelser.",
+    },
+  ];
+
+  const faqItems = [
+    {
+      question: "Kan jag komma även om jag inte är katolik?",
+      answer:
+        "Ja, absolut. Alla är välkomna till alla gudstjänster. Du behöver inte vara döpt eller ha någon särskild bakgrund för att delta. Den enda skillnaden är att den heliga kommunionen (nattvarden) är förbehållen katoliker som förberett sig genom bikt.",
+    },
+    {
+      question: "Måste jag kunna allt i förväg?",
+      answer:
+        "Nej, det behöver du inte. Det är helt i sin ordning att bara sitta med och följa med i det som sker. Mässböcker och texthäften finns tillgängliga, och församlingen hjälper gärna till.",
+    },
+    {
+      question: "Hur går en mässa till?",
+      answer:
+        "Mässan har två huvuddelar: ordets gudstjänst med bibelläsningar och predikan, och eukaristins gudstjänst där bröd och vin frambärs och konsekreras. Mässan inleds med sång och bön och avslutas med en sändning och välsignelse. En söndagsmässa varar cirka en timme.",
+    },
+    {
+      question: "Finns det gudstjänster på olika språk?",
+      answer:
+        "Mässan firas huvudsakligen på svenska, men delar av liturgin kan vara på latin eller finska. Kontakta församlingen för information om eventuella mässor på andra språk.",
+    },
+    {
+      question: "Vad gör jag om jag är osäker?",
+      answer:
+        "Kom bara förbi. Sätt dig ner, lyssna och känn av stämningen. Ingen förväntar sig att du ska kunna allt. Du kan också kontakta församlingen i förväg om du vill ställa frågor.",
+    },
+    {
+      question: "Kan barn vara med på gudstjänsten?",
+      answer:
+        "Ja, barn är alltid välkomna. Vissa söndagar ordnas söndagsskola parallellt med gudstjänsten, anpassad efter barnens ålder.",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-6">
-          {/* Back link */}
-          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8">
-            <ArrowLeft size={16} weight="light" />
-            <span className="font-body">Tillbaka till startsidan</span>
-          </Link>
+    <PageLayout>
+      <PageHero
+        title="Gudstjänsttyper"
+        description="Här presenteras de vanligaste formerna av gudstjänst och bön i församlingen. Alla är välkomna att delta."
+        image={gudstjanstHero}
+        imagePosition="center 70%"
+      />
 
-          <div
-            className="relative text-center mb-12 -mx-6 px-6 py-16 md:py-24 rounded-md overflow-hidden"
-            style={{
-              backgroundImage: `url(${gudstjanstHero})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center 70%'
-            }}
-          >
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/50" />
-            
-            <div className="relative z-10">
-              <h1 className="font-display text-4xl md:text-5xl text-white mb-4">
-                Gudstjänster
-              </h1>
-              <p className="font-body text-lg text-white/90 max-w-2xl mx-auto">
-                I S:t Görans Kyrka firas olika typer av gudstjänster och andakter genom året.
-                Här kan du läsa mer om de olika gudstjänsterna.
+      {/* Intro */}
+      <Section narrow>
+        <div className="text-center">
+          <h2 className="font-display text-2xl md:text-3xl text-foreground mb-6">
+            Bön, mässa och sakrament
+          </h2>
+          <p className="font-body text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            Det katolska församlingslivet kretsar kring mässan, sakramenten och den gemensamma bönen.
+            Utöver söndagsmässan finns det flera former av gudstjänst och bön som ger möjlighet
+            till andlig fördjupning och stillhet i vardagen.
+          </p>
+        </div>
+      </Section>
+
+      {/* Service type cards */}
+      <Section bg="secondary">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {serviceTypes.map((service, index) => (
+            <div
+              key={index}
+              className="bg-card rounded-xl p-6 md:p-8 shadow-card hover:shadow-hover transition-shadow flex flex-col"
+            >
+              <h3 className="font-display text-xl text-foreground mb-3">
+                {service.title}
+              </h3>
+              <p className="font-body text-muted-foreground leading-relaxed mb-4">
+                {service.description}
               </p>
+              <p className="font-body text-sm text-foreground/70 leading-relaxed mb-4 italic">
+                {service.practical}
+              </p>
+              {service.cta && (
+                <Link
+                  to={service.cta.href}
+                  className="mt-auto inline-flex items-center text-sm font-body font-medium text-primary hover:text-primary/80 transition-colors"
+                >
+                  {service.cta.label} →
+                </Link>
+              )}
             </div>
-          </div>
+          ))}
+        </div>
+      </Section>
 
-          {/* Service types grid */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
-            {serviceTypes.map((service, index) => (
-              <div key={index} className="bg-card rounded-xl p-6 shadow-card hover:shadow-hover transition-shadow">
-                <h3 className="font-display text-xl text-foreground mb-2">
-                  {service.title}
-                </h3>
-                <p className="font-body text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
+      {/* First-time visitor section */}
+      <Section narrow>
+        <div className="text-center mb-10">
+          <h2 className="font-display text-2xl md:text-3xl text-foreground mb-4">
+            För dig som besöker oss första gången
+          </h2>
+          <p className="font-body text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            Det spelar ingen roll om du aldrig har varit i en katolsk kyrka förut.
+            Här är några saker som kan vara bra att veta.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-6">
+          <div className="bg-card rounded-xl p-6 shadow-card">
+            <h3 className="font-display text-lg text-foreground mb-2">Alla är välkomna</h3>
+            <p className="font-body text-muted-foreground leading-relaxed">
+              Du behöver inte vara katolik eller ens troende för att komma till en gudstjänst.
+              Det är helt okej att bara sitta med, lyssna och uppleva stämningen.
+            </p>
+          </div>
+          <div className="bg-card rounded-xl p-6 shadow-card">
+            <h3 className="font-display text-lg text-foreground mb-2">Kom som du är</h3>
+            <p className="font-body text-muted-foreground leading-relaxed">
+              Det finns inga krav på klädsel eller förkunskaper. Om du vill följa med i texterna
+              finns mässböcker tillgängliga i kyrkan.
+            </p>
+          </div>
+          <div className="bg-card rounded-xl p-6 shadow-card">
+            <h3 className="font-display text-lg text-foreground mb-2">Kommunionen</h3>
+            <p className="font-body text-muted-foreground leading-relaxed">
+              Den heliga kommunionen (nattvarden) är förbehållen katoliker som förberett sig.
+              Som besökare kan du sitta kvar i bänken eller gå fram och ta emot en välsignelse
+              genom att korsa armarna över bröstet.
+            </p>
+          </div>
+          <div className="bg-card rounded-xl p-6 shadow-card">
+            <h3 className="font-display text-lg text-foreground mb-2">Kom i god tid</h3>
+            <p className="font-body text-muted-foreground leading-relaxed">
+              Försök att komma några minuter före gudstjänstens början. Det ger dig tid att
+              hitta en plats och landa i den lugna stämningen.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* FAQ */}
+      <Section bg="secondary">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-display text-2xl md:text-3xl text-foreground mb-8 text-center">
+            Vanliga frågor
+          </h2>
+          <Accordion type="single" collapsible className="space-y-3">
+            {faqItems.map((item, index) => (
+              <AccordionItem
+                key={index}
+                value={`faq-${index}`}
+                className="bg-card rounded-xl px-6 shadow-card border-none"
+              >
+                <AccordionTrigger className="font-display text-base md:text-lg text-foreground hover:no-underline py-5">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="font-body text-muted-foreground leading-relaxed pb-5">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
+        </div>
+      </Section>
 
-          {/* Link to schedule */}
-          <div className="bg-card rounded-xl p-8 shadow-card max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-2xl text-foreground mb-4">
-              Ordinarie mässtider
-            </h2>
-            <p className="font-body text-muted-foreground mb-6">
-              Se våra kommande gudstjänster med datum, tider och celebranter.
-            </p>
-            <Link to="/gudstjanster" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors">
-              Visa kommande gudstjänster
+      {/* Bottom CTA */}
+      <Section>
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="font-display text-2xl md:text-3xl text-foreground mb-4">
+            Välkommen till S:t Görans kyrka
+          </h2>
+          <p className="font-body text-lg text-muted-foreground mb-8 leading-relaxed">
+            Oavsett om du söker en gudstjänst att delta i eller vill veta mer om
+            församlingen – vi finns här för dig.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/gudstjanster"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
+            >
+              Se aktuella mäss- och gudstjänsttider
             </Link>
-          </div>
-
-          {/* Additional info */}
-          <div className="max-w-3xl mx-auto mt-12 text-center">
-            <p className="font-body text-muted-foreground mb-4">
-              Alla är välkomna att delta i våra gudstjänster. 
-              Har du frågor om något av sakramenten, kontakta oss gärna.
-            </p>
-            <Link to="/#kontakt" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-body">
-              Kontakta oss för mer information
+            <Link
+              to="/kontakt"
+              className="inline-flex items-center gap-2 border border-primary text-primary px-8 py-3 rounded-lg font-body font-medium hover:bg-primary/10 transition-colors"
+            >
+              Kontakta församlingen
             </Link>
           </div>
         </div>
-      </main>
-      <Footer />
-    </div>
+      </Section>
+    </PageLayout>
   );
 };
 

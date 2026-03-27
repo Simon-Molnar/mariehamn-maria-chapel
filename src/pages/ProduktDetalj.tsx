@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ShoppingCart, Minus, Plus } from "@phosphor-icons/react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import PageLayout from "@/components/PageLayout";
 import { CartDrawer } from "@/components/CartDrawer";
 import { Button } from "@/components/ui/button";
 import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
@@ -63,42 +62,34 @@ const ProduktDetalj = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background">
-        <Header />
-        <main className="pt-24 pb-16">
-          <div className="container mx-auto px-6">
-            <div className="animate-pulse max-w-5xl mx-auto">
-              <div className="h-6 bg-muted rounded w-48 mb-8" />
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="aspect-square bg-muted rounded-xl" />
-                <div className="space-y-4">
-                  <div className="h-8 bg-muted rounded w-3/4" />
-                  <div className="h-6 bg-muted rounded w-1/4" />
-                  <div className="h-24 bg-muted rounded" />
-                </div>
+      <PageLayout>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="animate-pulse max-w-5xl mx-auto">
+            <div className="h-6 bg-muted rounded w-48 mb-8" />
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="aspect-square bg-muted rounded-xl" />
+              <div className="space-y-4">
+                <div className="h-8 bg-muted rounded w-3/4" />
+                <div className="h-6 bg-muted rounded w-1/4" />
+                <div className="h-24 bg-muted rounded" />
               </div>
             </div>
           </div>
-        </main>
-        <Footer />
-      </div>
+        </div>
+      </PageLayout>
     );
   }
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-background">
-        <Header />
-        <main className="pt-24 pb-16">
-          <div className="container mx-auto px-6 text-center">
-            <h1 className="font-display text-3xl mb-4">Produkten hittades inte</h1>
-            <Link to="/butik" className="text-primary hover:underline font-body">
-              Tillbaka till butiken
-            </Link>
-          </div>
-        </main>
-        <Footer />
-      </div>
+      <PageLayout>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+          <h1 className="font-display text-3xl mb-4">Produkten hittades inte</h1>
+          <Link to="/butik" className="text-primary hover:underline font-body">
+            Tillbaka till butiken
+          </Link>
+        </div>
+      </PageLayout>
     );
   }
 
@@ -106,10 +97,8 @@ const ProduktDetalj = () => {
   const images = product.images.edges;
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-6">
+    <PageLayout>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Back link */}
           <div className="flex items-center justify-between mb-8 max-w-5xl mx-auto">
             <Link to="/butik" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
@@ -245,10 +234,8 @@ const ProduktDetalj = () => {
               </Button>
             </div>
           </div>
-        </div>
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </PageLayout>
   );
 };
 

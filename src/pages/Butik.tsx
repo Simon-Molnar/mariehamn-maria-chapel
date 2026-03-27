@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "@phosphor-icons/react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import PageLayout from "@/components/PageLayout";
+import PageHero from "@/components/PageHero";
+import Section from "@/components/Section";
 import { CartDrawer } from "@/components/CartDrawer";
 import { ProductCard } from "@/components/ProductCard";
 import { ShopifyProduct, fetchProducts } from "@/lib/shopify";
@@ -15,150 +15,111 @@ const Butik = () => {
 
   useEffect(() => {
     let isMounted = true;
-    
-    const loadProducts = async (retryCount = 0) => {
+
+    const loadProducts = async () => {
       try {
-        console.log('Loading products... attempt:', retryCount + 1);
         const productList = await fetchProducts();
-        console.log('Products loaded:', productList.length);
-        
         if (!isMounted) return;
-        
         setProducts(productList);
         setError(null);
       } catch (err) {
-        console.error("Failed to fetch products:", err);
         if (isMounted) {
-          setError(err instanceof Error ? err.message : 'Ett fel uppstod');
+          setError(err instanceof Error ? err.message : "Ett fel uppstod");
         }
       } finally {
-        if (isMounted) {
-          setIsLoading(false);
-        }
+        if (isMounted) setIsLoading(false);
       }
     };
 
     loadProducts();
-    
-    return () => {
-      isMounted = false;
-    };
+    return () => { isMounted = false; };
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-6">
-          {/* Back link */}
-          <div className="flex items-center justify-between mb-8">
-            <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-              <ArrowLeft size={16} weight="light" />
-              <span className="font-body">Tillbaka till startsidan</span>
-            </Link>
-            <CartDrawer />
-          </div>
+    <PageLayout>
+      <PageHero
+        title="Butik"
+        description="Böcker, andaktsföremål och gåvor som stöder det andliga livet"
+        image={butikHero}
+        imagePosition="70% 30%"
+      />
 
-          {/* Hero Section */}
-          <div
-            className="relative text-center mb-12 -mx-6 px-6 py-16 md:py-24 rounded-md overflow-hidden"
-            style={{
-              backgroundImage: `url(${butikHero})`,
-              backgroundSize: 'cover',
-              backgroundPosition: '70% 30%'
-            }}
-          >
-            <div className="absolute inset-0 bg-black/50" />
-            
-            <div className="relative z-10">
-              <h1 className="font-display text-4xl md:text-5xl text-white mb-4">
-                Butik
-              </h1>
-              <p className="font-body text-lg text-white/90 max-w-2xl mx-auto">
-                Böcker, andaktsföremål och gåvor som stöder det andliga livet
-              </p>
-            </div>
-          </div>
+      {/* Cart in top-right of first section */}
+      <Section>
+        <div className="flex justify-end mb-6">
+          <CartDrawer />
+        </div>
 
-          {/* Intro Text */}
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <p className="font-body text-muted-foreground leading-relaxed">
-              Vår församlingsbutik erbjuder ett urval av böcker, andaktsföremål och religiösa gåvor. 
-              Intäkterna går till att stödja församlingens verksamhet och välgörenhetsprojekt.
-            </p>
-          </div>
+        <div className="text-center mb-12 max-w-3xl mx-auto">
+          <p className="font-body text-lg text-muted-foreground leading-relaxed">
+            Församlingsbutiken erbjuder ett urval av böcker, andaktsföremål och religiösa gåvor.
+            Intäkterna går till att stödja församlingens verksamhet och välgörenhetsprojekt.
+          </p>
+        </div>
 
-          {/* Products Grid */}
-          {isLoading ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-card rounded-xl overflow-hidden animate-pulse">
-                  <div className="aspect-square bg-muted" />
-                  <div className="p-4 space-y-3">
-                    <div className="h-5 bg-muted rounded w-3/4" />
-                    <div className="h-4 bg-muted rounded w-full" />
-                    <div className="h-4 bg-muted rounded w-1/2" />
-                  </div>
+        {isLoading ? (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="bg-card rounded-xl overflow-hidden animate-pulse">
+                <div className="aspect-square bg-muted" />
+                <div className="p-4 space-y-3">
+                  <div className="h-5 bg-muted rounded w-3/4" />
+                  <div className="h-4 bg-muted rounded w-full" />
+                  <div className="h-4 bg-muted rounded w-1/2" />
                 </div>
-              ))}
-            </div>
-          ) : products.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {products.map((product) => (
-                <ProductCard key={product.node.id} product={product} />
-              ))}
-            </div>
-          ) : error ? (
-            <div className="bg-destructive/10 border border-destructive rounded-xl p-12 max-w-2xl mx-auto text-center">
-              <h2 className="font-display text-2xl text-foreground mb-4">
-                Kunde inte ladda produkter
-              </h2>
-              <p className="font-body text-muted-foreground mb-6">
-                {error}
-              </p>
-              <button 
-                onClick={() => window.location.reload()}
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
-              >
-                Försök igen
-              </button>
-            </div>
-          ) : (
-            <div className="bg-card rounded-xl p-12 shadow-card max-w-2xl mx-auto text-center">
-              <h2 className="font-display text-2xl text-foreground mb-4">
-                Inga produkter än
-              </h2>
-              <p className="font-body text-muted-foreground mb-6">
-                Butiken är under uppbyggnad. Kontakta oss gärna för information om vårt sortiment av böcker och andaktsföremål.
-              </p>
-              <a 
-                href="mailto:info@mariehamnskatolskaforsamling.ax" 
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
-              >
-                Kontakta oss
-              </a>
-            </div>
-          )}
-
-          {/* Contact Section */}
-          <div className="bg-card rounded-xl p-8 shadow-card max-w-3xl mx-auto text-center mt-12">
-            <h2 className="font-display text-2xl text-foreground mb-4">
-              Besök eller beställ
-            </h2>
+              </div>
+            ))}
+          </div>
+        ) : products.length > 0 ? (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {products.map((product) => (
+              <ProductCard key={product.node.id} product={product} />
+            ))}
+          </div>
+        ) : error ? (
+          <div className="bg-destructive/10 border border-destructive rounded-xl p-12 max-w-2xl mx-auto text-center">
+            <h2 className="font-display text-2xl text-foreground mb-4">Kunde inte ladda produkter</h2>
+            <p className="font-body text-muted-foreground mb-6">{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
+            >
+              Försök igen
+            </button>
+          </div>
+        ) : (
+          <div className="bg-card rounded-xl p-12 shadow-card max-w-2xl mx-auto text-center">
+            <h2 className="font-display text-2xl text-foreground mb-4">Inga produkter än</h2>
             <p className="font-body text-muted-foreground mb-6">
-              Butiken är öppen i samband med söndagens mässa. Du kan även kontakta oss för att höra om tillgänglighet eller för att göra en beställning.
+              Butiken är under uppbyggnad. Kontakta oss gärna för information om vårt sortiment.
             </p>
-            <a 
+            <a
               href="mailto:info@mariehamnskatolskaforsamling.ax"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
             >
               Kontakta oss
             </a>
           </div>
+        )}
+      </Section>
+
+      <Section bg="secondary">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="font-display text-2xl md:text-3xl text-foreground mb-4">
+            Besök eller beställ
+          </h2>
+          <p className="font-body text-lg text-muted-foreground mb-8 leading-relaxed">
+            Butiken är öppen i samband med söndagens mässa. Du kan även kontakta oss för att höra om tillgänglighet eller för att göra en beställning.
+          </p>
+          <a
+            href="mailto:info@mariehamnskatolskaforsamling.ax"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
+          >
+            Kontakta oss
+          </a>
         </div>
-      </main>
-      <Footer />
-    </div>
+      </Section>
+    </PageLayout>
   );
 };
 

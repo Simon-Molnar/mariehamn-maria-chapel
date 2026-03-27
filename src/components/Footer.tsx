@@ -3,7 +3,7 @@ import { MapPin, Phone, Envelope, FacebookLogo } from "@phosphor-icons/react";
 const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
-      <div className="container mx-auto px-6 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
           {/* Kontakta Oss */}
           <div>
@@ -40,12 +40,12 @@ const Footer = () => {
               Om Församlingen
             </h3>
             <p className="font-body text-muted-foreground mb-6 leading-relaxed">
-              Mariehamns katolska församling är en del av Helsingfors katolska stift. 
+              Mariehamns katolska församling är en del av Helsingfors katolska stift.
               Vi välkomnar alla som söker Gud och gemenskap i den katolska traditionen.
             </p>
-            <a 
-              href="https://facebook.com" 
-              target="_blank" 
+            <a
+              href="https://facebook.com"
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-body"
             >
@@ -56,7 +56,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Copyright */}
       <div className="border-t border-border py-6">
         <p className="text-center font-body text-sm text-muted-foreground">
           © {new Date().getFullYear()} Mariehamns Katolska Församling. Alla rättigheter förbehållna.
