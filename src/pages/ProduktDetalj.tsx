@@ -97,10 +97,8 @@ const ProduktDetalj = () => {
   const images = product.images.edges;
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-6">
+    <PageLayout>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Back link */}
           <div className="flex items-center justify-between mb-8 max-w-5xl mx-auto">
             <Link to="/butik" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
