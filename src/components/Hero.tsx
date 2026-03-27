@@ -2,7 +2,7 @@ import heroImage from "@/assets/hero-fresco.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
+    <section className="relative h-[40vh] min-h-[320px] flex items-center justify-center overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-no-repeat"
         style={{ 
@@ -20,7 +20,7 @@ const Hero = () => {
             Mariehamns Katolska Församling
           </h1>
           <p 
-            className="font-body text-lg sm:text-xl text-white/90 max-w-xl mx-auto opacity-0 animate-fade-in"
+            className="font-body text-lg sm:text-xl text-white/80 max-w-xl mx-auto opacity-0 animate-fade-in"
             style={{ animationDelay: "0.5s" }}
           >
             En plats för bön, gemenskap och tro på Åland.
