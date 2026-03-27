@@ -62,25 +62,21 @@ const ProduktDetalj = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background">
-        <Header />
-        <main className="pt-24 pb-16">
-          <div className="container mx-auto px-6">
-            <div className="animate-pulse max-w-5xl mx-auto">
-              <div className="h-6 bg-muted rounded w-48 mb-8" />
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="aspect-square bg-muted rounded-xl" />
-                <div className="space-y-4">
-                  <div className="h-8 bg-muted rounded w-3/4" />
-                  <div className="h-6 bg-muted rounded w-1/4" />
-                  <div className="h-24 bg-muted rounded" />
-                </div>
+      <PageLayout>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="animate-pulse max-w-5xl mx-auto">
+            <div className="h-6 bg-muted rounded w-48 mb-8" />
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="aspect-square bg-muted rounded-xl" />
+              <div className="space-y-4">
+                <div className="h-8 bg-muted rounded w-3/4" />
+                <div className="h-6 bg-muted rounded w-1/4" />
+                <div className="h-24 bg-muted rounded" />
               </div>
             </div>
           </div>
-        </main>
-        <Footer />
-      </div>
+        </div>
+      </PageLayout>
     );
   }
 
