@@ -2,8 +2,7 @@ import heroImage from "@/assets/hero-fresco.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative h-[45vh] min-h-[320px] flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+    <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-no-repeat"
         style={{ 
@@ -11,12 +10,8 @@ const Hero = () => {
           backgroundPosition: '50% 32%'
         }}
       />
-      
-      {/* Gradient Overlay */}
       <div className="absolute inset-0 gradient-hero" />
-      
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-3xl mx-auto">
           <h1 
             className="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-tight mb-4 opacity-0 animate-fade-in"
@@ -24,7 +19,6 @@ const Hero = () => {
           >
             Mariehamns Katolska Församling
           </h1>
-          
           <p 
             className="font-body text-lg sm:text-xl text-white/90 max-w-xl mx-auto opacity-0 animate-fade-in"
             style={{ animationDelay: "0.5s" }}

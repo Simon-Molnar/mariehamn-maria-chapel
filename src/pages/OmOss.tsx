@@ -34,10 +34,10 @@ const OmOss = () => {
       />
 
       <Section>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-8">
           {sections.map((section, index) => (
-            <div key={index} className="bg-card rounded-xl p-6 md:p-8 shadow-card hover:shadow-hover transition-shadow">
-              <h3 className="font-display text-xl text-foreground mb-3">
+            <div key={index} className="bg-card rounded-xl p-8 lg:p-10 shadow-card hover:shadow-hover transition-shadow">
+              <h3 className="font-display text-xl text-foreground mb-4">
                 {section.title}
               </h3>
               <p className="font-body text-muted-foreground leading-relaxed">
@@ -53,29 +53,26 @@ const OmOss = () => {
           <h2 className="font-display text-2xl md:text-3xl text-foreground mb-4">
             Helsingfors katolska stift
           </h2>
-          <p className="font-body text-lg text-muted-foreground mb-8 leading-relaxed">
+          <p className="font-body text-lg text-muted-foreground mb-10 leading-relaxed">
             Församlingen tillhör Helsingfors katolska stift som omfattar hela Finland.
             Stiftet leds av biskopen av Helsingfors och samlar katoliker från hela landet.
           </p>
-          <a
-            href="https://katolinen.fi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
-          >
-            Besök stiftets webbplats
-          </a>
-        </div>
-      </Section>
-
-      <Section>
-        <div className="text-center max-w-2xl mx-auto">
-          <p className="font-body text-muted-foreground mb-4">
-            Församlingen välkomnar alla som söker gemenskap i den katolska tron.
-          </p>
-          <Link to="/kontakt" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-body">
-            Kontakta oss för mer information
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="https://katolinen.fi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
+            >
+              Besök stiftets webbplats
+            </a>
+            <Link
+              to="/kontakt"
+              className="inline-flex items-center gap-2 border border-primary text-primary px-8 py-3.5 rounded-lg font-body font-medium hover:bg-primary/10 transition-colors"
+            >
+              Kontakta oss
+            </Link>
+          </div>
         </div>
       </Section>
     </PageLayout>

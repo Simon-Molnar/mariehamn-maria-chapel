@@ -46,10 +46,10 @@ const Sakrament = () => {
       />
 
       <Section>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {sacraments.map((sacrament, index) => (
-            <div key={index} className="bg-card rounded-xl p-6 md:p-8 shadow-card hover:shadow-hover transition-shadow">
-              <h3 className="font-display text-xl text-foreground mb-3">
+            <div key={index} className="bg-card rounded-xl p-8 lg:p-10 shadow-card hover:shadow-hover transition-shadow">
+              <h3 className="font-display text-xl text-foreground mb-4">
                 {sacrament.title}
               </h3>
               <p className="font-body text-muted-foreground leading-relaxed">
@@ -65,28 +65,24 @@ const Sakrament = () => {
           <h2 className="font-display text-2xl md:text-3xl text-foreground mb-4">
             Frågor om sakramenten?
           </h2>
-          <p className="font-body text-lg text-muted-foreground mb-8 leading-relaxed">
+          <p className="font-body text-lg text-muted-foreground mb-10 leading-relaxed">
             Vill du veta mer om något sakrament eller förbereda dig för att ta emot ett?
             Kontakta prästen för ett personligt samtal.
           </p>
-          <a
-            href="mailto:info@mariehamnskatolskaforsamling.ax"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
-          >
-            Kontakta prästen
-          </a>
-        </div>
-      </Section>
-
-      <Section>
-        <div className="text-center max-w-2xl mx-auto">
-          <p className="font-body text-muted-foreground mb-4">
-            Alla sakrament firas i S:t Görans kyrka.
-            Kontakta prästen för sakramentsförberedelse.
-          </p>
-          <Link to="/kontakt" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-body">
-            Kontakta oss för mer information
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="mailto:info@mariehamnskatolskaforsamling.ax"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
+            >
+              Kontakta prästen
+            </a>
+            <Link
+              to="/kontakt"
+              className="inline-flex items-center gap-2 border border-primary text-primary px-8 py-3.5 rounded-lg font-body font-medium hover:bg-primary/10 transition-colors"
+            >
+              Kontakta oss
+            </Link>
+          </div>
         </div>
       </Section>
     </PageLayout>
