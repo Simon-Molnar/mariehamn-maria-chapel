@@ -1,7 +1,7 @@
 const WelcomeSection = () => {
   return (
-    <section id="om-oss" className="py-20 bg-secondary">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="om-oss" className="bg-secondary">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-display text-3xl md:text-4xl text-foreground mb-8 border-b-2 border-primary pb-4 inline-block">
             Välkommen till S:t Görans kyrka

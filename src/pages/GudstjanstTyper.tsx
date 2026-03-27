@@ -95,7 +95,7 @@ const GudstjanstTyper = () => {
       />
 
       {/* Intro */}
-      <Section narrow>
+      <Section>
         <div className="text-center">
           <h2 className="font-display text-2xl md:text-3xl text-foreground mb-6">
             Bön, mässa och sakrament
