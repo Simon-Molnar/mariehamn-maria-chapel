@@ -110,19 +110,19 @@ const GudstjanstTyper = () => {
 
       {/* Service type cards */}
       <Section bg="secondary">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {serviceTypes.map((service, index) => (
             <div
               key={index}
-              className="bg-card rounded-xl p-6 md:p-8 shadow-card hover:shadow-hover transition-shadow flex flex-col"
+              className="bg-card rounded-xl p-8 lg:p-10 shadow-card hover:shadow-hover transition-shadow flex flex-col"
             >
-              <h3 className="font-display text-xl text-foreground mb-3">
+              <h3 className="font-display text-xl text-foreground mb-4">
                 {service.title}
               </h3>
               <p className="font-body text-muted-foreground leading-relaxed mb-4">
                 {service.description}
               </p>
-              <p className="font-body text-sm text-foreground/70 leading-relaxed mb-4 italic">
+              <p className="font-body text-sm text-foreground/70 leading-relaxed mb-5 italic">
                 {service.practical}
               </p>
               {service.cta && (
@@ -139,42 +139,42 @@ const GudstjanstTyper = () => {
       </Section>
 
       {/* First-time visitor section */}
-      <Section narrow>
-        <div className="text-center mb-10">
+      <Section>
+        <div className="text-center mb-12">
           <h2 className="font-display text-2xl md:text-3xl text-foreground mb-4">
             För dig som besöker oss första gången
           </h2>
-          <p className="font-body text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          <p className="font-body text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
             Det spelar ingen roll om du aldrig har varit i en katolsk kyrka förut.
             Här är några saker som kan vara bra att veta.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
-          <div className="bg-card rounded-xl p-6 shadow-card">
-            <h3 className="font-display text-lg text-foreground mb-2">Alla är välkomna</h3>
+        <div className="grid sm:grid-cols-2 gap-8">
+          <div className="bg-card rounded-xl p-8 lg:p-10 shadow-card">
+            <h3 className="font-display text-lg text-foreground mb-3">Alla är välkomna</h3>
             <p className="font-body text-muted-foreground leading-relaxed">
               Du behöver inte vara katolik eller ens troende för att komma till en gudstjänst.
               Det är helt okej att bara sitta med, lyssna och uppleva stämningen.
             </p>
           </div>
-          <div className="bg-card rounded-xl p-6 shadow-card">
-            <h3 className="font-display text-lg text-foreground mb-2">Kom som du är</h3>
+          <div className="bg-card rounded-xl p-8 lg:p-10 shadow-card">
+            <h3 className="font-display text-lg text-foreground mb-3">Kom som du är</h3>
             <p className="font-body text-muted-foreground leading-relaxed">
               Det finns inga krav på klädsel eller förkunskaper. Om du vill följa med i texterna
               finns mässböcker tillgängliga i kyrkan.
             </p>
           </div>
-          <div className="bg-card rounded-xl p-6 shadow-card">
-            <h3 className="font-display text-lg text-foreground mb-2">Kommunionen</h3>
+          <div className="bg-card rounded-xl p-8 lg:p-10 shadow-card">
+            <h3 className="font-display text-lg text-foreground mb-3">Kommunionen</h3>
             <p className="font-body text-muted-foreground leading-relaxed">
               Den heliga kommunionen (nattvarden) är förbehållen katoliker som förberett sig.
               Som besökare kan du sitta kvar i bänken eller gå fram och ta emot en välsignelse
               genom att korsa armarna över bröstet.
             </p>
           </div>
-          <div className="bg-card rounded-xl p-6 shadow-card">
-            <h3 className="font-display text-lg text-foreground mb-2">Kom i god tid</h3>
+          <div className="bg-card rounded-xl p-8 lg:p-10 shadow-card">
+            <h3 className="font-display text-lg text-foreground mb-3">Kom i god tid</h3>
             <p className="font-body text-muted-foreground leading-relaxed">
               Försök att komma några minuter före gudstjänstens början. Det ger dig tid att
               hitta en plats och landa i den lugna stämningen.
@@ -185,21 +185,21 @@ const GudstjanstTyper = () => {
 
       {/* FAQ */}
       <Section bg="secondary">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-display text-2xl md:text-3xl text-foreground mb-8 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-display text-2xl md:text-3xl text-foreground mb-10 text-center">
             Vanliga frågor
           </h2>
-          <Accordion type="single" collapsible className="space-y-3">
+          <Accordion type="single" collapsible className="space-y-4">
             {faqItems.map((item, index) => (
               <AccordionItem
                 key={index}
                 value={`faq-${index}`}
-                className="bg-card rounded-xl px-6 shadow-card border-none"
+                className="bg-card rounded-xl px-8 shadow-card border-none"
               >
-                <AccordionTrigger className="font-display text-base md:text-lg text-foreground hover:no-underline py-5">
+                <AccordionTrigger className="font-display text-base md:text-lg text-foreground hover:no-underline py-6">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="font-body text-muted-foreground leading-relaxed pb-5">
+                <AccordionContent className="font-body text-muted-foreground leading-relaxed pb-6">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -210,24 +210,24 @@ const GudstjanstTyper = () => {
 
       {/* Bottom CTA */}
       <Section>
-        <div className="text-center max-w-2xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto">
           <h2 className="font-display text-2xl md:text-3xl text-foreground mb-4">
             Välkommen till S:t Görans kyrka
           </h2>
-          <p className="font-body text-lg text-muted-foreground mb-8 leading-relaxed">
+          <p className="font-body text-lg text-muted-foreground mb-10 leading-relaxed">
             Oavsett om du söker en gudstjänst att delta i eller vill veta mer om
             församlingen – vi finns här för dig.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/gudstjanster"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-lg font-body font-medium hover:bg-primary/90 transition-colors"
             >
               Se aktuella mäss- och gudstjänsttider
             </Link>
             <Link
               to="/kontakt"
-              className="inline-flex items-center gap-2 border border-primary text-primary px-8 py-3 rounded-lg font-body font-medium hover:bg-primary/10 transition-colors"
+              className="inline-flex items-center gap-2 border border-primary text-primary px-8 py-3.5 rounded-lg font-body font-medium hover:bg-primary/10 transition-colors"
             >
               Kontakta församlingen
             </Link>

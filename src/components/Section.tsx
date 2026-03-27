@@ -15,10 +15,10 @@ const Section = ({ children, className, narrow = false, bg = "default" }: Sectio
   }[bg];
 
   return (
-    <section className={cn("py-16 md:py-20", bgClass, className)}>
+    <section className={cn("py-20 md:py-24", bgClass, className)}>
       <div className={cn(
         "mx-auto px-4 sm:px-6 lg:px-8",
-        narrow ? "max-w-4xl" : "max-w-7xl"
+        narrow ? "max-w-5xl" : "max-w-7xl"
       )}>
         {children}
       </div>
