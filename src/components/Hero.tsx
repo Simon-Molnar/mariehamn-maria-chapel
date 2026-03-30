@@ -19,12 +19,6 @@ const Hero = () => {
           >
             Mariehamns Katolska Församling
           </h1>
-          <p 
-            className="font-body text-lg sm:text-xl text-white/80 max-w-xl mx-auto opacity-0 animate-fade-in"
-            style={{ animationDelay: "0.5s" }}
-          >
-            En plats för bön, gemenskap och tro på Åland.
-          </p>
         </div>
       </div>
     </section>
