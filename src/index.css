@@ -8,65 +8,37 @@
 
 @layer base {
   :root {
-    /* Clean white backgrounds with subtle warmth */
-    --background: 0 0% 100%;
-    --foreground: 220 25% 20%;
-
+    --background: 40 33% 98%;
+    --foreground: 30 10% 15%;
     --card: 0 0% 100%;
-    --card-foreground: 220 25% 20%;
-
+    --card-foreground: 30 10% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 20%;
-
-    /* Warm golden as primary */
-    --primary: 43 80% 48%;
+    --popover-foreground: 30 10% 15%;
+    --primary: 98 20% 49%;
     --primary-foreground: 0 0% 100%;
-    /* Light neutral secondary */
-    --secondary: 30 10% 96%;
-    --secondary-foreground: 220 25% 20%;
-
-    --muted: 30 8% 95%;
-    --muted-foreground: 220 15% 45%;
-
-    /* Muted teal accent */
-    --accent: 180 25% 35%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 62.8% 50%;
+    --secondary: 40 33% 95%;
+    --secondary-foreground: 30 10% 15%;
+    --muted: 40 20% 94%;
+    --muted-foreground: 30 5% 45%;
+    --accent: 46 10% 68%;
+    --accent-foreground: 30 10% 15%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-
-    --border: 30 15% 88%;
-    --input: 30 15% 90%;
-    --ring: 43 80% 48%;
-
-    --radius: 0.75rem;
-
-    /* Custom colors */
-    --gold: 43 80% 48%;
-    --gold-light: 46 70% 55%;
-    --gold-dark: 40 85% 38%;
-    --cream: 35 30% 96%;
-    --cream-soft: 30 20% 92%;
-    --slate: 220 25% 20%;
-    --slate-light: 220 15% 45%;
-
-    /* Gradients */
-    --gradient-hero: linear-gradient(180deg, hsla(220, 25%, 15%, 0.4) 0%, hsla(220, 25%, 15%, 0.7) 100%);
-    --gradient-card: linear-gradient(135deg, hsla(0, 0%, 100%, 1) 0%, hsla(30, 20%, 98%, 1) 100%);
-
-    /* Shadows */
-    --shadow-card: 0 4px 20px hsla(220, 25%, 20%, 0.08);
-    --shadow-hover: 0 8px 30px hsla(220, 25%, 20%, 0.12);
-
-    /* Sidebar */
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 220 25% 20%;
-    --sidebar-primary: 45 75% 45%;
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 98 20% 49%;
+    --radius: 0.25rem;
+    --linen: 40 33% 97%;
+    --sage: 98 20% 49%;
+    --stone: 46 10% 68%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 30 10% 15%;
+    --sidebar-primary: 98 20% 49%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 30 15% 95%;
-    --sidebar-accent-foreground: 220 25% 20%;
-    --sidebar-border: 30 15% 88%;
-    --sidebar-ring: 45 75% 45%;
+    --sidebar-accent: 40 20% 94%;
+    --sidebar-accent-foreground: 30 10% 15%;
+    --sidebar-border: 40 15% 88%;
+    --sidebar-ring: 98 20% 49%;
   }
 
   .dark {
