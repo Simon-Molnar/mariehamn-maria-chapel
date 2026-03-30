@@ -87,6 +87,14 @@
 }
 
 @layer utilities {
+  .shadow-card {
+    box-shadow: 0 1px 3px hsla(30, 10%, 15%, 0.06);
+  }
+
+  .shadow-hover {
+    box-shadow: 0 4px 12px hsla(30, 10%, 15%, 0.1);
+  }
+
   .gradient-hero {
     background: linear-gradient(180deg, hsla(30, 10%, 10%, 0.3) 0%, hsla(30, 10%, 10%, 0.6) 100%);
   }
