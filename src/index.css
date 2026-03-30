@@ -87,31 +87,7 @@
 }
 
 @layer utilities {
-  .text-gold {
-    color: hsl(var(--gold));
-  }
-  
-  .bg-gold {
-    background-color: hsl(var(--gold));
-  }
-
-  .text-cream {
-    color: hsl(var(--cream));
-  }
-
-  .border-gold {
-    border-color: hsl(var(--gold));
-  }
-
-  .shadow-card {
-    box-shadow: var(--shadow-card);
-  }
-
-  .shadow-hover {
-    box-shadow: var(--shadow-hover);
-  }
-
   .gradient-hero {
-    background: var(--gradient-hero);
+    background: linear-gradient(180deg, hsla(30, 10%, 10%, 0.3) 0%, hsla(30, 10%, 10%, 0.6) 100%);
   }
 }
